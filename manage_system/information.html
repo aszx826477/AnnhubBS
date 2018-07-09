@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>卓护加固-Annhub</title>
+		<meta name="description" content="Annhub是一个安卓应用加固平台" />
+		<meta name="keywords" content="卓护, Android, 安卓, 保护, 应用, 平台, 可视化, 软件, UI, 管理" />
+		<meta name="author" content="Annhub"/>
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="icon" href="favicon.ico" type="image/x-icon">
+		
+		<!-- Table CSS -->
+		<link href="dist/css/table.css" rel="stylesheet" type="text/css"/>
+
+		<!--alerts CSS -->
+		<link href="vendors/bower_components/sweetalert/dist/sweetalert.css" rel="stylesheet" type="text/css">
+		
+		<!-- Custom CSS -->
+		<link href="dist/css/style.css" rel="stylesheet" type="text/css">
+	</head>
+
+<body>
+	<!--Preloader-->
+	<div class="preloader-it">
+		<div class="la-anim-1"></div>
+	</div>
+	<!--/Preloader-->
+    <div class="wrapper">
+			<!-- Top Menu Items -->
+			<nav class="navbar navbar-inverse navbar-fixed-top">
+				<a id="toggle_nav_btn" class="toggle-left-nav-btn inline-block mr-20 pull-left" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+				<a href="../index.html"><img class="brand-img pull-left" src="dist/img/logo.png" alt="brand" style="height: 50px; width: 70px"/></a>
+				<ul class="nav navbar-right top-nav pull-right">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown"><img src="<?php echo $head_url; ?>" alt="user_auth" class="user-auth-img img-circle"/><span class="user-online-status"></span></a>
+						<ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+							<li>
+								<a><i class="fa fa-fw fa-user"></i> <?php echo $nickname; ?> </a>
+							</li>
+							<li>
+								<a style="text-transform: lowercase;"><i class="fa fa-fw fa-cog" ></i> <?php echo $email; ?> </a>
+							</li>
+							<li>
+								<a href="index.php?page=5"><i class="fa fa-fw fa-user"></i> 信息与设置</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="index.php?page=6"><i class="fa fa-fw fa-power-off"></i> 登出</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<div class="collapse navbar-search-overlap" id="site_navbar_search">
+					<form role="search">
+						<div class="form-group mb-0">
+							<div class="input-search">
+								<div class="input-group">	
+									<input type="text" id="overlay_search" name="overlay-search" class="form-control pl-30" placeholder="Search">
+									<span class="input-group-addon pr-30">
+									<a  href="javascript:void(0)" class="close-input-overlay" data-target="#site_navbar_search" data-toggle="collapse" aria-label="Close" aria-expanded="true"><i class="fa fa-times"></i></a>
+									</span> 
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</nav>
+			<!-- /Top Menu Items -->
+			
+			<!-- Left Sidebar Menu -->
+			<div class="fixed-sidebar-left">
+				<ul class="nav navbar-nav side-nav nicescroll-bar">
+					<li>
+						<a href="index.php?page=3"><i class="icon-speedometer mr-10"></i>控制台</a>
+					</li>
+					<li>
+						<a href="index.php?page=4"><i class="icon-grid mr-10"></i>我的应用</a>
+					</li>
+					<li>
+						<a href="index.php?page=5"><i class="icon-user mr-10"></i>信息与设置</a>
+					</li>
+					
+					
+				</ul>
+			</div>
+			<!-- /Left Sidebar Menu -->
+			
+			
+
+        <!-- Main Content -->
+			<div class="page-wrapper">
+				<div class="container-fluid">
+					<!-- Title -->
+					<div class="row heading-bg  bg-green">
+						<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+						  <h5 class="txt-light">我的应用</h5>
+						</div>
+					</div>
+					<!-- /Title -->
+					<!-- Row -->
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="panel panel-default card-view">
+							<div class="panel-wrapper collapse in">
+								<div class="panel-body">
+									<div class="mail-box">
+										<div class="row">
+											<script>
+												function change_password() {
+													document.getElementById('set_new_pwd_form').action = "form_post.php?op=4";
+												}
+												function send_verify_code() {
+													document.getElementById('set_new_email_form').action = "form_post.php?op=1";
+												}
+												function change_email() {
+													document.getElementById('set_new_email_form').action = "form_post.php?op=5";
+												}
+												function change_nickname() {
+													document.getElementById('set_new_name_form').action = "form_post.php?op=6";
+												}
+												
+											</script>
+											
+											<aside class="col-md-3">
+												<div class="user-head text-center">
+													<a class="inbox-avatar block" >
+														<img  src="<?php echo $head_url; ?>" alt="user" style="width: 80px; height: 80px"/>
+													</a>
+													<div class="user-name">
+														<h5><a> <?php echo $nickname; ?> </a></h5>
+														<span><a> <?php echo $email; ?> </a></span>
+													</div>
+												</div>
+												<div class="clearfix"></div>
+												
+												<div class="mb-30">
+													<div>
+														<form id="head_upload_form" method="post" action="" enctype="multipart/form-data">
+															<div class="fileupload btn btn-primary btn-anim btn-block ">
+																<i class="fa fa-upload"></i>
+																<span class="btn-text">选择头像(jpg,大小<1MB)</span>
+																<input name="file" id="fileSelector" type="file" class="upload">
+															</div>
+
+															<button id="head_upload_btn" type="submit" class="btn btn-success btn-block" title="只允许上传jpg格式的文件"">上传</button>
+														</form>
+													</div>
+													
+
+
+													<div  class="panel-wrapper collapse in">
+														<div  class="panel-body">
+															<div id="set-new-pwd-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+																<div class="modal-dialog">
+																	<div class="modal-content">
+																		<div class="modal-header">
+																			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+																			<h5 class="modal-title">修改密码</h5>
+																		</div>
+																		<form id="set_new_pwd_form" action="" method="post">
+																			<div class="modal-body">
+																				<div class="form-group">
+																					<label for="new_pwd" class="control-label mb-10">新密码</label>
+																					<input name="password" id="new_pwd" type="text" class="form-control" placeholder="new password(6-16)" minlength="6" maxlength="16">
+																				</div>
+																				<div class="form-group">
+																					<label for="new_pwd_again" class="control-label mb-10" >重复输入新密码</label>
+																					<input name="password_again" id="new_pwd_again" type="text" class="form-control" placeholder="new password again(6-16)" minlength="6" maxlength="16">
+																				</div>
+																			</div>
+
+																			<div class="modal-footer">
+																				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+																				<button id="set_new_pwd_button" type="submit" class="btn btn-danger" onclick="change_password()">提交</button>
+																			</div>
+																		</form>
+																	</div>
+																</div>
+															</div>
+															<a alt="default" data-toggle="modal" data-target="#set-new-pwd-modal" title="进行修改密码的操作" class="btn btn-danger btn-block mt-20">
+																修改密码
+															</a>
+														</div>
+													</div>	
+
+
+												</div>												
+											</aside>
+											
+											<aside class="col-md-9">
+												<div class="inbox-head  mb-30">
+													<div class="row">
+														<h3 class="col-sm-3">个人信息</h3>
+														<div  class="col-sm-offset-4 col-sm-5">
+															<form role="search">
+																<div class="input-group mb-15">
+																	<input type="text" id="example-input1-group21" name="example-input1-group21" class="form-control" placeholder="Search">
+																	 <span class="input-group-btn">
+																		<button type="button" class="btn  btn-success"><i class="fa fa-search"></i></button>
+																	</span>
+																</div>
+															</form>
+														</div>
+													</div>
+												</div>
+												<div>
+													<hr class="mt-25 mb-15"/>
+													<table class="table-1" style="width: 100%">
+														<tr>
+															<th>类别</th>
+															<th>信息</th>
+														</tr>
+														<tr>
+															<td>用户名</td>
+															<td>
+																<div class="panel-wrapper collapse in">
+																	<div class="panel-body">
+																		<div id="set-new-name-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+																			<div class="modal-dialog">
+																				<div class="modal-content" style="text-align: left;">
+																					<div class="modal-header">
+																						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+																						<h5 class="modal-title">修改用户名</h5>
+																					</div>
+
+																					<form id="set_new_name_form" action="" method="post">
+																						<div class="modal-body">
+																							<div class="form-group">
+																								<label for="new_nickname" class="control-label mb-10">新用户名</label>
+																								<input name="nickname" id="new_nickname" type="text" class="form-control" placeholder="new nickname(4-16 char needed not space)" minlength="4" maxlength="16">
+																							</div>
+																						</div>
+																						<div class="modal-footer">
+																							<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+																							<button id="set_new_name_button" class="btn btn-danger" onclick="change_nickname()">提交</button>
+																						</div>
+																					</form>
+																				</div>
+																			</div>
+																		</div>
+																		<?php echo $nickname ?>
+																		<a alt="default" data-toggle="modal" data-target="#set-new-name-modal" class="fa fa-pencil-square-o pull-right" style="padding: 5px">
+																			修改
+																		</a>
+																	</div>
+																</div>	
+															</td>
+														</tr>	
+														<tr>
+															<td>邮箱</td>
+															<td>
+																<div class="panel-wrapper collapse in">
+																	<div class="panel-body">
+																		<div id="set-new-email-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+																			<div class="modal-dialog">
+																				<div class="modal-content" style="text-align: left;">
+																					<div class="modal-header">
+																						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+																						<h5 class="modal-title">修改邮箱</h5>
+																					</div>
+																					
+																					<form id="set_new_email_form" action="" method="post">
+																						<div class="modal-body">
+																							<div class="form-group">
+																								<label for="new_email" class="control-label mb-10">新邮箱</label>
+																								<input name="email" id="new_email" type="text" class="form-control" placeholder="new email">
+																							</div>
+																							<div class="form-group">
+																								<label for="new_verify" class="control-label mb-10">验证码</label>
+																								<input name="verification_code" id="new_verify" type="text" class="form-control" placeholder="verify code">
+																							</div>
+																							<button id="new_verify_button" type="submit" class="btn btn-success" onclick="send_verify_code()">将验证码发至邮箱</button>
+																						</div>
+																						<div class="modal-footer">
+																							<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+																							<button id="set_new_email_button" type="submit" class="btn btn-danger" onclick="change_email()">提交</button>
+																						</div>
+																					</form>
+																				</div>
+																			</div>
+																		</div>
+																		<?php echo $email ?>
+																		<a alt="default" data-toggle="modal" data-target="#set-new-email-modal" class="fa fa-pencil-square-o pull-right" style="padding: 5px">
+																			修改
+																		</a>
+																	</div>
+																</div>	
+															</td>
+														</tr>	
+														<tr>
+															<td>注册时间</td>
+															<td><?php echo $register_date; ?></td>
+														</tr>
+																		
+													</table>
+												</div>
+											</aside>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /Row -->
+				</div>
+			<!-- Footer -->
+			<footer class="footer container-fluid pl-30 pr-30">
+				<div class="row">
+					<div class="col-sm-5">
+						<a href="../index.html" class="brand mr-30">Annhub</a>
+						<ul class="footer-link nav navbar-nav">
+							<li class="logo-footer"><a href="#">帮助</a></li>
+							<li class="logo-footer"><a href="#">联系我们</a></li>
+							<li class="logo-footer"><a href="#">隐私条例</a></li>
+						</ul>
+					</div>
+					<div class="col-sm-7 text-right">
+						<p>2018 &copy; Annhub. All Right Reserved</p>
+					</div>
+				</div>
+			</footer>
+			<!-- /Footer -->
+			
+		</div>
+        <!-- /Main Content -->
+
+    </div>
+    <!-- /#wrapper -->
+	
+	<!-- JavaScript -->
+		
+		<!-- jQuery -->
+		<script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="dist/js_assist/jquery.form.js"></script>
+		
+		<!-- Bootstrap Core JavaScript -->
+		<script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<!-- Slimscroll JavaScript -->
+		<script src="dist/js/jquery.slimscroll.js"></script>
+
+		<!-- Sweet-Alert  -->
+		<script src="vendors/bower_components/sweetalert/dist/sweetalert.min.js"></script>
+
+		<!-- js assit -->
+		<script src="dist/js_assist/information-page.js"></script>
+
+
+	<!-- Fancy Dropdown JS -->
+	<script src="dist/js/dropdown-bootstrap-extended.js"></script>		
+		<!-- Init JavaScript -->
+		<script src="dist/js/init.js"></script>
+
+	
+
+
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+.table-1 table {
+	margin: 15px；
+}
+.table-1 th {
+	background-color: #93DAFF;
+	color: #000000
+}
+.table-1,.table-1 th,.table-1 td
+{
+	font-size: 15px;
+	text-align: center;
+	vertical-align: middle;
+	padding:4px;
+	border:1px solid #6fcdfe;
+	border-collapse:collapse
+}
+.table-1 tr:nth-child(odd){
+	background-color: #dbf2fe;
+}
+.table-1 tr:nth-child(even){
+	background-color: #fdfdfd;
+}
