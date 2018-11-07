@@ -15,16 +15,26 @@
 			$result = mysqli_fetch_array($query);
 			$user_id = $result['user_id'];
 
-			$query_app = mysqli_query($sql, "select apk_real_name, upload_date, report_path, file_path from apk where user_id = '$user_id'");
+			$query_app = mysqli_query($sql, "select apk_real_name, upload_date, protected, scanned, app, report, report_pdf, app_protect, report_protect, report_protect_pdf from apk where user_id = '$user_id'");
 			$app_total_num = mysqli_num_rows($query_app);
 			$app = array();
+			//$row = mysqli_fetch_array($query_app);
 			for($i = 0; $i < $app_total_num; $i ++) {
 				$row = mysqli_fetch_array($query_app);
 				$app[$i] = array(
-					'app_name' => $row['apk_real_name'],
-					'app_date' => $row['upload_date'],
-					'app_report_url' => $row['report_path'],
-					'app_download_url' => $row['file_path']
+					'apk_real_name' => $row['apk_real_name'],
+					'upload_date' => $row['upload_date'],
+					'protected' => $row['protected'],
+					'scanned' => $row['scanned'],
+
+					'app' => $row['app'],
+					'report' => $row['report'],
+					'report_pdf' => $row['report_pdf'],
+
+					'app_protect' => $row['app_protect'],
+					'report_protect' => $row['report_protect'],
+					'report_protect_pdf' => $row['report_protect_pdf']
+					
 				);
 			}
 			$info = array(

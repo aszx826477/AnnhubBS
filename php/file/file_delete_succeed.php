@@ -27,9 +27,9 @@
 						$query = mysqli_query($sql, "select user_id from user where email = '$email'");
 						$res =  mysqli_fetch_array($query);
 						$user_id = $res['user_id'];
-						$file_num = mysqli_num_rows(mysqli_query($sql, "select apk_id from apk where user_id = '$user_id'"));
+						$file_num = mysqli_num_rows(mysqli_query($sql, "select apk_id from apk where user_id = $user_id"));
 						//更新user表中的应用总数
-						if(mysqli_query($sql, "update user set file_num = '$file_num' where user_id = '$user_id'")) {
+						if(mysqli_query($sql, "update user set file_num = $file_num where user_id = $user_id")) {
 							$state_message = 0;
 						} else {
 							$state_message = -4001;

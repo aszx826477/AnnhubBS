@@ -23,14 +23,14 @@
 				if($sql) {
 					$email = explode(' ', $_COOKIE["Annhub"])[0];
 					if(! mysqli_query($sql, "update user set nickname = '$nickname' where email = '$email'")) {
-						$state_message = -400;
+						$state_message = -9;
 					}
 				} else {
-					$state_message = -400;
+					$state_message = -8;
 				}
 				mysqli_close($sql);
 			} else {
-				$state_message = -400;
+				$state_message = -7;
 			}
 		}
 	}

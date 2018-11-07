@@ -1,7 +1,9 @@
 <?php
 	/*
-	Author:ALi
-	20180524
+	20180524	Author:ALi
+	建立文件
+	2018-11-06	YellowBee
+	完善各种参数
 	*/
 	//数据库参数
 	$mysql_address = "localhost";
@@ -11,12 +13,12 @@
 
 	//user默认参数
 	$nickname_default = "HelloWorld";
-	$head_url_default = "http://www.annhub.cn/manage_system/header_default.png";
-	$report_path_default = "http://www.annhub.cn/report/this_is_demo.pdf";
+	$head_url_default = "http://www.annhub.cn/default/header_default.png";
+
 
 
 	//SMTP参数
-	$smtp_server = "smtp.ym.163.com";//SMTP服务器
+	$smtp_server = "smtp.ym.163.com";//"smtp.ym.163.com";//SMTP服务器
 	$smtp_port = 25;//SMTP服务器端口
 	$smtp_usermail = "verify@annhub.cn";//SMTP服务器的用户邮箱
 	$smtp_user = "verify@annhub.cn";//SMTP服务器的用户帐号

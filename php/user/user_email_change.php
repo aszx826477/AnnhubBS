@@ -20,7 +20,7 @@
 			if($state_message == 0) {
 				$sql = mysqli_connect($mysql_address, $mysql_user, $mysql_password, $mysql_database);//链接数据库
 				if($sql) {
-					$query_1 = mysqli_query($sql, "select verification_code, time from verify where email = '$email'");
+					$query_1 = mysqli_query($sql, "select verification_code, time from verify where email = $email");
 					$result_1 = mysqli_fetch_array($query_1);
 					if(mysqli_num_rows($query_1) != 0 && $result_1["time"] <= time()-300) {//检查验证码是否过期
 						$state_message = -103;
@@ -28,14 +28,14 @@
 					else {
 						if($verification_code == $result_1["verification_code"]) {//检查验证码
 							$email_old = explode(' ', $_COOKIE["Annhub"])[0];
-							$query_2 = mysqli_query($sql, "select password from user where email = '$email_old'");
+							$query_2 = mysqli_query($sql, "select password from user where email = $email_old");
 							$result_2 = mysqli_fetch_array($query_2);
 
 							//新旧邮箱的问题产生的Bug
-							$query_3 = mysqli_query($sql, "select password from user where email = '$email'");
+							$query_3 = mysqli_query($sql, "select password from user where email = $email");
 
 							if(mysqli_num_rows($query_3) == 0) {
-								if(mysqli_query($sql, "update user set email = '$email' where email = '$email_old'") && mysqli_query($sql, "delete from verify where email = '$email'")) {
+								if(mysqli_query($sql, "update user set email = $email where email = $email_old") && mysqli_query($sql, "delete from verify where email = $email")) {
 									$return = set_cookie($email, $result_2["password"], "login");
 								}
 								else {

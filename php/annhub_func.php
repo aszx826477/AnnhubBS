@@ -85,7 +85,7 @@
 				$token_key = $token_array[1];
 				$register_time = time();
 				$register_date = date("Y-m-d");
-				if(mysqli_query($sql, "insert into user(email, password, token_key, token_time_end, nickname, head_url, file_num, file_protected_num, file_unprotected_num, file_scan_num, file_leak_num, register_time, register_date) values('$email', '$password', '$token_key', '$token_time_end', '$nickname_default', '$head_url_default', 0, 0, 0, 0, 0, '$register_time', '$register_date')") && mysqli_query($sql, "delete from verify where email = '$email'")) {
+				if(mysqli_query($sql, "insert into user(email, password, token_key, token_time_end, nickname, head_url, file_num, file_protected_num, file_scan_num, file_leak_num, register_time, register_date) values('$email', '$password', '$token_key', '$token_time_end', '$nickname_default', '$head_url_default', 0, 0, 0, 0, '$register_time', '$register_date')") && mysqli_query($sql, "delete from verify where email = '$email'")) {
 					$info = array("content" => $email.' '.$token, "time" => $token_time_end);
 					$return = array("state_message" => $state_message, "info" => $info);
 				}
@@ -335,4 +335,5 @@
 		}
 		return $state_message;
 	}
+
 ?>

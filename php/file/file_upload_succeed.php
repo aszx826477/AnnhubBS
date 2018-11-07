@@ -1,7 +1,11 @@
 <?php
 	/*
-	Author:ALi && YellowBeee
-	201805230 && 2018-6-12
+	201805230	ALi
+	创建文件
+	2018-06-12	YellowBee
+	2018-11-06	YellowBee
+	数据库表结构变动
+
 	*/
 	include "../conf.php";
 	include "../annhub_func.php";
@@ -27,11 +31,11 @@
 					$upload_date = date("Y-m-d");
 					$apk_url = "https://".$COS_bucket.".cos.".$COS_region.".myqcloud.com".$url;
 
-					if(mysqli_query($sql, "insert into apk(user_id, apk_name, apk_real_name, upload_time, upload_date, upload, protected, scanned, report_path, file_path) values($user_id, '$apk_name', '$apk_real_name', $upload_time, '$upload_date', 1, 0, 0, '$report_path_default', '$apk_url')")) {
+					if(mysqli_query($sql, "insert into apk(user_id, apk_name, apk_real_name, upload_time, upload_date, upload, protected, scanned, app) values($user_id, '$apk_name', '$apk_real_name', $upload_time, '$upload_date', 1, 0, 0, '$apk_url')")) {
 						//查询该用户总共拥有的apk数
-						$file_num = mysqli_num_rows(mysqli_query($sql, "select apk_id from apk where user_id = '$user_id'"));
+						$file_num = mysqli_num_rows(mysqli_query($sql, "select apk_id from apk where user_id = $user_id"));
 						//更新user表中的应用总数
-						if(!mysqli_query($sql, "update user set file_num = '$file_num' where user_id = '$user_id'")) {
+						if(!mysqli_query($sql, "update user set file_num = $file_num where user_id = $user_id")) {
 							$state_message = -4001;
 						}
 					} else {

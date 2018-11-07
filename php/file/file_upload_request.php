@@ -1,7 +1,9 @@
 <?php
 	/*
-	Author:ALi && YellowBee
-	20180530 && 2018-6-12
+	20180530	Author:ALi 
+ 
+	2018-6-12	YellowBee
+
 	*/
 	include "../conf.php";
 	include "../annhub_func.php";
