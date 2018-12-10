@@ -53,7 +53,8 @@
               <a class="nav-link js-scroll-trigger" href="#contact">联系我们</a>
             </li>
             <li class="nav-item">
-              <?php if(isset($_COOKIE['Annhub'])): ?>
+              <?php include 'modules/class/authenticate.php';
+                    if(check_cookie() == 0): ?>
                 <a class="nav-link js-scroll-trigger" href="manage_index.php">控制台</a>
               <?php else: ?>
                 <a class="nav-link js-scroll-trigger" href="login.php">登录/注册</a>

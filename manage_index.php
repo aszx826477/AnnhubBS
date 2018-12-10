@@ -1,8 +1,13 @@
 <?php 
-	if(! isset($_COOKIE['Annhub'])) {
-		header('Location: login.php');
-	}
 	include 'modules/class/data.php';
+	include 'modules/class/authenticate.php';
+	
+	if(check_cookie() == 0) {
+		session_start();	
+	} else {
+		$code = check_cookie();
+		header("Location: modules/class/error.php?code=$code");
+	}
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +19,10 @@
 	<!-- Data table CSS -->
 	<link href="vendors/bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
 	<link href="vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet" type="text/css">
+
+	<!-- Bootstrap table CSS -->
+	<link href="vendors/bower_components/bootstrap-table/dist/bootstrap-table.css" rel="stylesheet" type="text/css"/>
+
 	<!-- Custom CSS -->
 	<link href="dist/css/style.css" rel="stylesheet" type="text/css">
 </head>
@@ -154,36 +163,99 @@
 				<!-- /Row -->
 				<!-- Row -->
 				<div class="row">
-					<div class="col-lg-7">
+					<div class="col-xs-12">
                         <div class="panel panel-default card-view">
 							<div class="panel-heading">
 								<div class="pull-left">
-									<h6 class="panel-title txt-dark"><i class="icon-map mr-10"></i>Annhub安全中心威胁趋势统计</h6>
+									<h6 class="panel-title txt-dark"><i class="icon-map mr-10"></i>我的应用总览</h6>
 								</div>
 								<div class="clearfix"></div>
 							</div>
 							<div class="panel-wrapper collapse in">
 								<div class="panel-body">
-									<canvas id="chart_1" height="150"></canvas>
+									<div class="table-wrap">
+										
+											<table data-toggle="table">
+												<thead>
+												  <tr>
+													<th>#</th>
+													<th>应用名</th>
+													<th>高危</th>
+													<th>中危</th>
+													<th>低危</th>
+													<th>警告</th>
+													<th>风险总数</th>
+													<th>安全评分</th>
+													<th>安全等级</th>
+													<th>已扫描</th>
+													<th>已加固</th>
+												  </tr>
+												</thead>
+												<tbody>
+												  <tr>
+													<td>1</td>
+													<td>QQ</td>
+													<td>7</td>
+													<td>2</td>
+													<td>1</td>
+													<td>3</td>
+													<td>13</td>
+													<td>23</td>
+													<td><span class="label label-danger">危险</span></td>
+													<td>×</td>
+													<td>×</td>
+												  </tr>
+												  <tr>
+													<td>2</td>
+													<td>微信</td>
+													<td>0</td>
+													<td>3</td>
+													<td>4</td>
+													<td>2</td>
+													<td>9</td>
+													<td>65</td>
+													<td><span class="label label-info">及格</span> </td>
+													<td>×</td>
+													<td>×</td>
+													
+												  </tr>
+												  <tr>
+													<td>3</td>
+													<td>趣声</td>
+													<td>2</td>
+													<td>1</td>
+													<td>0</td>
+													<td>3</td>
+													<td>6</td>
+													<td>85</td>
+													<td><span class="label label-warning">警告</span> </td>
+													<td>√</td>
+													<td>×</td>
+													
+												  </tr>
+												  <tr>
+													<td>4</td>
+													<td>支付宝</td>
+													<td>0</td>
+													<td>0</td>
+													<td>0</td>
+													<td>1</td>
+													<td>1</td>
+													<td>100</td>
+													<td><span class="label label-success">安全</span> </td>
+													<td>√</td>
+													<td>√</td>
+												  </tr>
+												  
+												</tbody>
+											</table>
+										
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-5">
-                         <div class="panel panel-default card-view">
-							<div class="panel-heading">
-								<div class="pull-left">
-									<h6 class="panel-title txt-dark"><i class="icon-chart mr-10"></i>Annhub安全中心应用威胁统计TOP-10</h6>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="panel-wrapper collapse in">
-								<div class="panel-body">
-									<canvas id="chart_2" height="250"></canvas>
-								</div>	
-							</div>
-						</div>
-					</div>
+					
 				</div>
 				<!-- /Row -->
 				
@@ -219,7 +291,9 @@
 	<script src="dist/js/dropdown-bootstrap-extended.js"></script>
 	
 	
-	<!-- Morris Charts JavaScript -->
+	<!-- Bootstrap-table JavaScript -->
+	<script src="vendors/bower_components/bootstrap-table/dist/bootstrap-table.min.js"></script>
+	<script src="dist/js/bootstrap-table-data.js"></script>
   
 	
 	<!-- ChartJS JavaScript -->

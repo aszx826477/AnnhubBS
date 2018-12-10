@@ -66,7 +66,7 @@ if(isset($_GET['fun'])) {
     		));
 		}
 		catch (Exception $e) {
-			$state_message = -302;
+			$state_message = 303;
 		}
 		return $state_message;
 	}

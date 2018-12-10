@@ -276,11 +276,9 @@
 
 				$app_url = $app[$i]['app']; //关于命名的小BUG
 				$report = $app[$i]['report'];
-				$report_pdf = $app[$i]['report_pdf'];
 
 				$app_protect = $app[$i]['app_protect'];
 				$report_protect = $app[$i]['report_protect'];
-				$report_protect_pdf = $app[$i]['report_protect_pdf'];
 
 														echo <<<FILE_OUTPUT
 														
@@ -304,8 +302,8 @@
 																			<li><a href="$app_url">下载</a></li>
 FILE_OUTPUT;
 																			if($scanned == 1) {
-																				echo '<li><a href="$report">查看检测报告</a></li>';
-																				echo '<li><a href="$report_pdf">下载检测报告</a></li>';
+																				echo '<li><a href="">查看检测报告</a></li>';
+																				echo '<li><a href="$report">下载检测报告</a></li>';
 																			} else {
 																				echo '<li><a href="#">正在扫描</a></li>';				
 																			}
@@ -313,8 +311,8 @@ FILE_OUTPUT;
 																			echo '<li class="divider"></li>';
 																			if($protected == 1) {
 																				echo '<li><a href="$app_protect">下载加固包</a></li>';
-																				echo '<li><a href="$report_protect">查看加固包的检测报告</a></li>';
-																				echo '<li><a href="$report_protect_pdf">下载加固包的检测报告</a></li>';
+																				echo '<li><a href="">查看加固包的检测报告</a></li>';
+																				echo '<li><a href="$report_protect">下载加固包的检测报告</a></li>';
 																			} else {
 																				echo '<li><a href="#">正在加固</a></li>';
 																			}

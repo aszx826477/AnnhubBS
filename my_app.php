@@ -1,10 +1,13 @@
 <?php 
-	if(! isset($_COOKIE['Annhub'])) {
-		header('Location: login.php');
-	}
 	include 'modules/class/data.php';
+	include 'modules/class/authenticate.php';
 
-	session_start();
+	if(check_cookie() == 0) {
+		session_start();	
+	} else {
+		$code = check_cookie();
+		header("Location: modules/class/error.php?code=$code");
+	}
 
 ?>
 
@@ -213,14 +216,14 @@
                 	});
                 	return false;
             	} else {
-                	if(file['type'] != 'application/vnd.android.package-archive') {
+                	/*if(file['type'] != 'application/vnd.android.package-archive') {
                     	swal({
                         	title: "上传格式错误，请上传apk的文件格式",
                         	type: "warning", 
                         	confirmButtonColor: "#fcb03b"
                     	});
                     	return false;
-                    }
+                    }*/
                 } 
                 
                 if((file['size']/1024) > (1024*100)) {

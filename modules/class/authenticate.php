@@ -87,12 +87,15 @@ if (isset($_GET['fun'])) {
 		$post = [
 			"email" => "$email"
 		];
+		$header = [
+			"Cookie:Annhub=$cookie"
+		];
 
 		$curl = curl_init();
 		curl_setopt($curl, CURLOPT_URL, $post_url);
 		curl_setopt($curl, CURLOPT_POSTFIELDS, $post);
 		curl_setopt($curl, CURLOPT_TIMEOUT, $curl_timeout);	
-		curl_setopt($curl, CURLOPT_HTTPHEADER, null);
+		curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 		$res = json_decode(curl_exec($curl), true); //true参数将对象转换为关联数组
 		curl_close($curl);
@@ -106,6 +109,35 @@ if (isset($_GET['fun'])) {
 		}
 
 
+	}
+
+	//检查cookie
+	function check_cookie() {
+		$post_url = "http://www.annhub.cn/php/user/user_auth.php";
+		$curl_timeout = 3;
+		$state_message = 0;
+		if(isset($_COOKIE['Annhub'])) {
+			$cookie = $_COOKIE['Annhub'];
+			$header = [
+				"Cookie:Annhub=$cookie"
+			];
+
+			$curl = curl_init();
+			curl_setopt($curl, CURLOPT_URL, $post_url);
+			curl_setopt($curl, CURLOPT_POSTFIELDS, null);
+			curl_setopt($curl, CURLOPT_TIMEOUT, $curl_timeout);	
+			curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+			$res = json_decode(curl_exec($curl), true);
+			curl_close($curl);
+
+			$state_message = $res['state_message'];
+		} else {
+			$state_message = 203; //cookie过期或无cookie
+		}
+
+		return $state_message;
+		
 	}
 
 
