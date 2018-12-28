@@ -241,7 +241,108 @@
 		} 
 	}
 
-	
+	//输出manage_index的table列表
+	function output_app_table() {
+		
+		$post_url = "http://www.annhub.cn/php/file/table_info_get.php";
+		$curl_timeout = 3;
+		$email = explode(' ', $_COOKIE['Annhub'])[0];
+		$cookie = $_COOKIE['Annhub'];
+		$header = [
+			"Cookie: Annhub=$cookie"
+		];
+
+		$curl = curl_init();
+		curl_setopt($curl, CURLOPT_URL, $post_url);
+		curl_setopt($curl, CURLOPT_POSTFIELDS, null);
+		curl_setopt($curl, CURLOPT_TIMEOUT, $curl_timeout);	
+		curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		$res = json_decode(curl_exec($curl), true); //true参数将对象转换为关联数组
+		curl_close($curl);
+
+		$state_message = $res['state_message'];
+		if($state_message == 0) {
+			$app_total_num = $res['info']['app_total_num'];
+			$report = $res['info']['report'];
+
+			if($app_total_num == 0) {
+				echo '<td colspan="11"><center>您还没有上传应用<center></td>';
+			}
+
+			for($i = 0; $i < $app_total_num; $i ++) {
+				$apk_real_name = $report[$i]['apk_real_name'];
+				$protected = $report[$i]['protected'];
+				$scanned = $report[$i]['scanned'];
+
+				$high = $report[$i]['high'];
+				$middle = $report[$i]['middle'];
+				$low = $report[$i]['low'];
+				$warning = $report[$i]['warning'];
+
+				$total = $report[$i]['total']; 
+				$score = $report[$i]['score'];
+				$level = $report[$i]['level'];
+
+				$num = $i + 1;
+
+				echo <<<TABLE_OUTPUT1
+												  <tr>
+													<td>$num</td>
+													<td>$apk_real_name</td>
+TABLE_OUTPUT1;
+				if($scanned ==  1) {
+				echo <<<TABLE_OUTPUT2
+													<td>$high</td>
+													<td>$middle</td>
+													<td>$low</td>
+													<td>$warning</td>
+													<td>$total</td>
+													<td>$score</td>
+TABLE_OUTPUT2;
+												} else {
+				echo <<<TABLE_OUTPUT3
+													<td>/</td>
+													<td>/</td>
+													<td>/</td>
+													<td>/</td>
+													<td>/</td>
+													<td>/</td>
+TABLE_OUTPUT3;
+				}
+				if($scanned == 1) {
+					switch ($level) {
+						case 1:
+							echo '<td><span class="label label-success">安全</span></td>';
+							break;
+						case 2:
+							echo '<td><span class="label label-info">合格</span></td>';
+							break;
+						case 3:
+							echo '<td><span class="label label-warning">警告</span></td>';
+							break;
+						case 4:
+							echo '<td><span class="label label-danger">危险</span></td>';
+							break;
+						default:
+							echo '<td><span class="label label-danger">error</span></td>';
+							break;
+					}
+				} else {
+					echo '<td>/</td>';
+				}
+				
+				if($scanned == 1) {echo '<td>√</td>';} else {echo '<td>×</td>';}
+				if($protected == 1) {echo '<td>√</td>';} else {echo '<td>×</td>';}
+				echo '</tr>';
+											
+
+			}
+
+		
+		} 
+
+	}
 
 	//输出apk文件列表
 	function output_app_list() {
@@ -299,20 +400,23 @@
 																			<span class="caret"></span>
 																		</button>
 																		<ul class="dropdown-menu col-xs-12 col-sm-12 col-md-12">
-																			<li><a href="$app_url">下载</a></li>
+																			<li><a href="http://www.annhub.cn/test/test.apk">下载</a></li>
 FILE_OUTPUT;
 																			if($scanned == 1) {
-																				echo '<li><a href="">查看检测报告</a></li>';
-																				echo '<li><a href="$report">下载检测报告</a></li>';
+																				$report_demo = get_report_demo();
+																				echo "<li><a href=\"$report_demo\" target=\"_blank\">查看检测报告</a></li>";
+																				echo "<li><a href=\"$report\">下载检测报告</a></li>";
 																			} else {
 																				echo '<li><a href="#">正在扫描</a></li>';				
 																			}
 
 																			echo '<li class="divider"></li>';
 																			if($protected == 1) {
-																				echo '<li><a href="$app_protect">下载加固包</a></li>';
-																				echo '<li><a href="">查看加固包的检测报告</a></li>';
-																				echo '<li><a href="$report_protect">下载加固包的检测报告</a></li>';
+																				$report_protect_demo = get_report_protect_demo();
+																				$report_protect_pdf_demo = get_report_pdf_demo();
+																				echo '<li><a href="http://www.annhub.cn/test/test_protect.apk">下载加固包</a></li>';
+																				echo "<li><a href=\"$report_protect_demo\" target=\"_blank\">查看加固包的检测报告</a></li>";
+																				echo "<li><a href=\"$report_protect_pdf_demo\">下载加固包的检测报告</a></li>";
 																			} else {
 																				echo '<li><a href="#">正在加固</a></li>';
 																			}
@@ -374,10 +478,10 @@ FILE_OUTPUT1;
                 		url: "modules/class/file.php?fun=delete_app&file=$i",
                 		dataType: "json",
                 		success: function(msg) {
-                			
+
                 			swal({
             					title: "您选择的应用",
-            					text: "已移除",
+            					text: "已删除",
             					type: "success"
             				}, function(){
             					location.reload();

@@ -61,7 +61,7 @@ if(isset($_GET['code'])) {
 			header("Location: ../../500.php?code=$code&info=$info");
 			break;
 		case 305:
-			$info = "COS check失败";
+			$info = "COS check 对象不存在";
 			header("Location: ../../500.php?code=$code&info=$info");
 			break;
 

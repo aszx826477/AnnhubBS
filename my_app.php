@@ -216,14 +216,14 @@
                 	});
                 	return false;
             	} else {
-                	/*if(file['type'] != 'application/vnd.android.package-archive') {
+                	if(file['type'] != 'application/vnd.android.package-archive') {
                     	swal({
                         	title: "上传格式错误，请上传apk的文件格式",
                         	type: "warning", 
                         	confirmButtonColor: "#fcb03b"
                     	});
                     	return false;
-                    }*/
+                    }
                 } 
                 
                 if((file['size']/1024) > (1024*100)) {

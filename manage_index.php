@@ -192,60 +192,8 @@
 												  </tr>
 												</thead>
 												<tbody>
-												  <tr>
-													<td>1</td>
-													<td>QQ</td>
-													<td>7</td>
-													<td>2</td>
-													<td>1</td>
-													<td>3</td>
-													<td>13</td>
-													<td>23</td>
-													<td><span class="label label-danger">危险</span></td>
-													<td>×</td>
-													<td>×</td>
-												  </tr>
-												  <tr>
-													<td>2</td>
-													<td>微信</td>
-													<td>0</td>
-													<td>3</td>
-													<td>4</td>
-													<td>2</td>
-													<td>9</td>
-													<td>65</td>
-													<td><span class="label label-info">及格</span> </td>
-													<td>×</td>
-													<td>×</td>
-													
-												  </tr>
-												  <tr>
-													<td>3</td>
-													<td>趣声</td>
-													<td>2</td>
-													<td>1</td>
-													<td>0</td>
-													<td>3</td>
-													<td>6</td>
-													<td>85</td>
-													<td><span class="label label-warning">警告</span> </td>
-													<td>√</td>
-													<td>×</td>
-													
-												  </tr>
-												  <tr>
-													<td>4</td>
-													<td>支付宝</td>
-													<td>0</td>
-													<td>0</td>
-													<td>0</td>
-													<td>1</td>
-													<td>1</td>
-													<td>100</td>
-													<td><span class="label label-success">安全</span> </td>
-													<td>√</td>
-													<td>√</td>
-												  </tr>
+
+												  <?php output_app_table();?>
 												  
 												</tbody>
 											</table>

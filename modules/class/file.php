@@ -276,7 +276,8 @@ if(isset($_GET['fun'])) {
   			$return = array('$state_message' => $state_message);
   			echo json_encode($return);
   		} else {
-  			header("Location: error.php?code=$state_message");
+  			//header("Location: error.php?code=$state_message");
+  			//echo json_encode($state_message);
   		}
   		
 	}
