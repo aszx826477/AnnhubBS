@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<!-- saved from url=(0083)file:///C:/Users/Administrator/Desktop/APP%E5%AE%A1%E8%AE%A1%E7%B3%BB%E7%BB%9F.html -->
+<html lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="APP审计系统">
+    <meta name="keywords" content="Android, 加固, 安全审计, 漏洞挖掘">
+
+    <title>卓护加固平台</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="./report_structure_files/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="./report_structure_files/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="./report_structure_files/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="./report_structure_files/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="./report_structure_files/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body><div id="wrapper">
+
+    <div id="page-wrapper" style="min-height: 653px;">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>卓护平台检测报告</h1>
+                <h3>安全评分：32</h3>
+                <h3 class="page-header">时间：2018-12-28</h3>
+            </div>
+        </div>
+  
+        <div class="row">
+            <div class="col-lg-12">
+                <!--基本信息-->
+                <div class="row-fluid" id="file-index0">
+
+                    <div class="row">
+                        <div class="col-lg-2 col-xs-6" style="background: red;margin: 5px">
+                          <!-- small box -->
+                          <div class="small-box bg-red">
+                            <div class="inner">
+                              <h3>0</h3>
+                              <p>高危漏洞</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-lg-2 col-xs-6" style="background: yellow; margin: 5px">
+                          <!-- small box -->
+                          <div class="small-box bg-yellow">
+                            <div class="inner">
+                              <h3>3</h3>
+                              <p>中危漏洞</p>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="col-lg-2 col-xs-6" style="background: orange;margin: 5px">
+                          <!-- small box -->
+                          <div class="small-box bg-aqua">
+                            <div class="inner">
+                              <h3>2</h3>
+                              <p>低危漏洞</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-lg-2 col-xs-6" style="background: gray;margin: 5px">
+                          <!-- small box -->
+                          <div class="small-box bg-aqua">
+                            <div class="inner">
+                              <h3>2</h3>
+                              <p>警告</p>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 20px">
+                        <div class="col-md-6">
+                          <div class=" box box-widget">
+                            
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                             
+                              <tr>
+                                <td>文件名</td>
+                                  <td>test.apk</td>
+                              </tr>
+
+                              <tr>
+                                <td>文件大小</td>
+                                <td>27.083592414856MB</td>
+                              </tr>
+                              <tr>
+                                <td>MD5</td>
+                                <td>e8a71b2cc17e4a250ff4da443f9b206c</td>
+                              </tr>
+                              <tr>
+                                <td>包名</td>
+                                <td>com.qf.yuntsg.haidu</td>
+                              </tr>
+                              <tr>
+                                <td>Main Activity</td>
+                                <td>com.qf.yuntsg.haidu.MainActivity</td>
+                              </tr>
+                              <tr>
+                                <td>Min SDK</td>
+                                <td>16</td>
+                              </tr>
+                              
+                              <tr>
+                                <td>Target SDK</td>
+                                <td>23</td>
+                              </tr>
+
+                            </tbody>
+                          </table>
+                          </div>
+                        </div>             
+                    </div>
+                </div>
+                <!--基本信息-->
+
+                <!--权限列表-->
+                <div class="row-fluid" id="file-index1">
+                    <h3>权限列表</h3>
+                    <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>名称</th>
+                        <th>说明</th>
+                        <th style="min-width:80px">提示</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="error">               
+                            <td>0</td>
+                            <td>android.permission.ACCESS_NETWORK_STATE</td>
+                            <td>允许应用程序查看所有网络的状态。</td>
+                            <td>警告</td>
+                        </tr>
+
+                        <tr class="info">                     
+                            <td>1</td>
+                            <td>android.permission.ACCESS_WIFI_STATE</td>
+                            <td>允许应用程序查看有关WLAN状态的信息。</td>
+                            <td>提示</td>
+                        </tr>     
+                    
+                    </tbody>
+                  </table>
+                </div>
+                <!--权限列表-->
+
+                <!--四大组件-->
+                <div class="row-fluid" id="file-index2">
+                    <h3>四大组件</h3>
+                    <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>组件名称</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                  <div class="bs">
+                                    <p>
+                                        <a role="button" data-toggle="collapse" href="#activity" aria-expanded="true" aria-controls="collapseExample">
+                                            Activity组件
+                                        </a>
+                                    </p>
+                                    <div class="collapse" id="activity">
+                                        <div>
+                                            com.qf.yuntsg.haidu.MainActivity<br>
+                                            com.google.zxing.client.android.CaptureActivity<br>com.google.zxing.client.android.encode.EncodeActivity<br>com.github.barteksc.pdfviewer.sample.MainActivity<br>com.myplayer.MainActivity<br>
+                                          </div>
+                                    </div>
+                                  </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                  <div class="bs">
+                                    <p>
+                                      <a role="button" data-toggle="collapse" href="#service" aria-expanded="true" aria-controls="collapseExample">
+                                        Service组件
+                                      </a>
+                                    </p>
+                                    <div class="collapse" id="service">
+                                        <div>
+                                            这是Service组件的内容
+                                        </div>
+                                    </div>
+                                  </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                  <div class="bs">
+                                    <p>
+                                        <a role="button" data-toggle="collapse" href="#BroadcastReceiver" aria-expanded="true" aria-controls="collapseExample">
+                                            BroadcastReceiver组件
+                                        </a>
+                                    </p>
+                                    <div class="collapse" id="BroadcastReceiver">
+                                        <div>
+                                           这是BroadcatReceiver组件的内容
+                                        </div>
+                                    </div>
+                                  </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                  <div class="bs">
+                                    <p>
+                                        <a role="button" data-toggle="collapse" href="#ContentProvider" aria-expanded="true" aria-controls="collapseExample">
+                                            ContentProvider组件
+                                        </a>
+                                    </p>
+                                    <div class="collapse" id="ContentProvider">
+                                        <div>
+                                            org.apache.cordova.camera.FileProvider<br>
+                                            io.github.pwlin.cordova.plugins.fileopener2.FileProvider<br>
+                                        </div>
+                                    </div>
+                                  </div>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+                <!--四大组件-->
+
+                <h3 class="sub-header" id="file-index4">静态扫描发现风险点</h3>
+                
+                <div class="table-responsive">
+                    <table class="table table-striped" style="table-layout:fixed">
+                        <thead>
+                            <tr>
+                               
+                                <th style="width:100px">风险等级</th>
+                                 <th>风险名称</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p style="color: red">高危</p>
+                                </td>
+                                <td>
+                                    <div class="bs">
+                                        <p>
+                                            <a role="button" data-toggle="collapse" href="#1" aria-expanded="true" aria-controls="collapseExample">
+                                                日志泄露风险检测                              
+                                            </a>
+                                        </p>
+                                        <div class="collapse" id="1">
+                                            <div>
+                                                XXXXXXXXXXXXXXXXXX
+                                            </div>
+                                        </div>
+                                </div></td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <p style="color: orange">中危</p>
+                                </td>
+                                <td>
+                                    <div class="bs">
+                                        <p>
+                                            <a role="button" data-toggle="collapse" href="#2" aria-expanded="true" aria-controls="collapseExample">
+                                                敏感信息检测                             
+                                            </a>
+                                        </p>
+                                        <div class="collapse" id="2">
+                                            <div>
+                                                XXXXXXXXXXXXX
+                                            </div>
+                                        </div>
+                                </div></td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <p style="color: blue">低危</p>
+                                </td>
+                                <td>
+                                    <div class="bs">
+                                        <p>
+                                            <a role="button" data-toggle="collapse" href="#3" aria-expanded="true" aria-controls="collapseExample">
+                                                webview密码明文保存漏洞检测                               
+                                            </a>
+                                        </p>
+                                        <div class="collapse" id="3">
+                                            <div>
+                                                XXXXXXXXXXXXXXXXXXX
+                                            </div>
+                                        </div>
+                                </div></td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <p style="color: yellow">警告</p>
+                                </td>
+                                <td>
+                                    <div class="bs">
+                                        <p>
+                                            <a role="button" data-toggle="collapse" href="#4" aria-expanded="true" aria-controls="collapseExample">
+                                                系统输出泄露风险检测                              
+                                            </a>
+                                        </p>
+                                        <div class="collapse" id="4">
+                                            <div>
+                                                XXXXXXXXXXXXXXX
+                                            </div>
+                                        </div>
+                                </div></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+            </div>
+        </div>
+            
+
+        <!-- /.row -->
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+ <!-- jQuery -->
+    <script src="./report_structure_files/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./report_structure_files/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="./report_structure_files/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="./report_structure_files/morris.min.js"></script>
+    <script src="./report_structure_files/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="./report_structure_files/sb-admin-2.js"></script>
+
+
+
+
+</body></html>
