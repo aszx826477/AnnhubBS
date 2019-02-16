@@ -1,0 +1,29 @@
+{
+  "name": "Nestable",
+  "authors": [
+    "Ruben Heymans <ruben.heymans@gmail.com>"
+  ],
+  "description": "",
+  "main": "jquery.nestable.js",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "https://github.com/rubenheymans/Nestable",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "version": "1.0.1",
+  "_release": "1.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.0.1",
+    "commit": "a1aad27c58eea00b56d19c0c36d4e22c09a440d4"
+  },
+  "_source": "https://github.com/rubenheymans/Nestable.git",
+  "_target": "^1.0.1",
+  "_originalSource": "Nestable",
+  "_direct": true
+}
