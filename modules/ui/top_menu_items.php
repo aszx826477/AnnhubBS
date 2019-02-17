@@ -6,13 +6,14 @@
 				<ul class="nav navbar-right top-nav pull-right">
 					
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown"><img src="<?php echo get_head_url(); ?>" alt="user_auth" class="user-auth-img img-circle"/><span class="user-online-status"></span></a>
+						<a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown"><img src="<?php echo $user_info['head_url']; ?>" alt="user_auth" class="user-auth-img img-circle"/><span class="user-online-status"></span></a>
 						<ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+
 							<li>
-								<a><i class="fa fa-fw fa-user"></i> <?php echo get_nickname(); ?> </a>
+								<a><i class="fa fa-fw fa-user"></i> <?php echo $user_info['nickname']; ?> </a>
 							</li>
 							<li>
-								<a style="text-transform: lowercase;"><i class="fa fa-fw fa-envelope" ></i> <?php echo get_email(); ?> </a>
+								<a style="text-transform: lowercase;"><i class="fa fa-fw fa-envelope" ></i> <?php echo $user_info['email']; ?> </a>
 							</li>
 							<li>
 								<a href="information.php"><i class="fa fa-fw fa-cog"></i> 信息与设置</a>

@@ -1,4 +1,5 @@
 <?php 
+
 	include 'modules/class/authenticate.php';
 
 	if(check_cookie() == 0) {

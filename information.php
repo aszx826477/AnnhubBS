@@ -1,19 +1,19 @@
 <?php 
-	include 'modules/class/data.php';
+
 	include 'modules/class/authenticate.php';
-	
+
 	if(check_cookie() == 0) {
 		session_start();	
 	} else {
 		$code = check_cookie();
 		header("Location: modules/class/error.php?code=$code");
 	}
+
 ?>
 
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-
 	<?php include 'modules/ui/header.php'; ?>
 		
 	<!-- Table CSS -->
@@ -73,11 +73,11 @@
 											<aside class="col-md-3">
 												<div class="user-head text-center">
 													<a class="inbox-avatar block" >
-														<img  src="<?php echo get_head_url(); ?>" alt="user" style="width: 80px; height: 80px"/>
+														<img  src="<?php echo $user_info['head_url']; ?>" alt="user" style="width: 80px; height: 80px"/>
 													</a>
 													<div class="user-name">
-														<h5><a> <?php echo get_nickname(); ?> </a></h5>
-														<span><a> <?php echo get_email(); ?> </a></span>
+														<h5><a> <?php echo $user_info['nickname']; ?> </a></h5>
+														<span><a> <?php echo $user_info['email']; ?> </a></span>
 													</div>
 												</div>
 												<div class="clearfix"></div>
@@ -187,7 +187,7 @@
 																				</div>
 																			</div>
 																		</div>
-																		<?php echo get_nickname(); ?>
+																		<?php echo $user_info['nickname']; ?>
 																		<a alt="default" data-toggle="modal" data-target="#set-new-name-modal" class="fa fa-pencil-square-o pull-right" style="padding: 5px">
 																			修改
 																		</a>
@@ -228,7 +228,7 @@
 																				</div>
 																			</div>
 																		</div>
-																		<?php echo get_email(); ?>
+																		<?php echo $user_info['email']; ?>
 																		<a alt="default" data-toggle="modal" data-target="#set-new-email-modal" class="fa fa-pencil-square-o pull-right" style="padding: 5px">
 																			修改
 																		</a>
@@ -238,7 +238,7 @@
 														</tr>	
 														<tr>
 															<td>注册时间</td>
-															<td><?php echo get_register_date(); ?></td>
+															<td><?php echo $user_info['register_date']; ?></td>
 														</tr>
 																		
 													</table>

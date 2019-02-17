@@ -20,7 +20,7 @@
 			$query_app = mysqli_query($sql, "select apk_real_name, upload_date, protected, scanned, app, report, app_protect, report_protect from apk where user_id = '$user_id'");
 			$app_total_num = mysqli_num_rows($query_app);
 			$app = array();
-			//$row = mysqli_fetch_array($query_app);
+
 			for($i = 0; $i < $app_total_num; $i ++) {
 				$row = mysqli_fetch_array($query_app);
 				$app[$i] = array(

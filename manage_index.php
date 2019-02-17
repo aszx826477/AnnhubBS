@@ -1,19 +1,22 @@
 <?php 
-	include 'modules/class/data.php';
+
 	include 'modules/class/authenticate.php';
-	
+
 	if(check_cookie() == 0) {
 		session_start();	
 	} else {
 		$code = check_cookie();
 		header("Location: modules/class/error.php?code=$code");
 	}
+
 ?>
 
 <!DOCTYPE html>
 <html lang="zh">
 <head>
     <?php include 'modules/ui/header.php'; ?>
+
+
 	<!-- Morris Charts CSS -->
     <link href="vendors/bower_components/morris.js/morris.css" rel="stylesheet" type="text/css"/>
 	<!-- Data table CSS -->
@@ -67,7 +70,7 @@
 										<div class="row">
 											<div class="col-xs-6">
 												<div class="counter-wrap text-left">
-													<span class="counter"> <?php echo get_app_total_num(); ?> </span>
+													<span class="counter"> <?php echo $user_info['app_total_num']; ?> </span>
 												</div>	
 											</div>
 											<div class="col-xs-6">
@@ -94,7 +97,7 @@
 										<div class="row">
 											<div class="col-xs-6">
 												<div class="counter-wrap text-left">
-													<span class="counter"> <?php echo get_app_protect_num(); ?> </span>
+													<span class="counter"> <?php echo $user_info['app_protect_num']; ?> </span>
 												</div>	
 											</div>
 											<div class="col-xs-6">
@@ -121,7 +124,7 @@
 										<div class="row">
 											<div class="col-xs-6">
 												<div class="counter-wrap text-left">
-													<span class="counter"> <?php echo get_app_scan_num(); ?> </span>
+													<span class="counter"> <?php echo $user_info['app_scan_num']; ?> </span>
 												</div>	
 											</div>
 											<div class="col-xs-6">
@@ -147,7 +150,7 @@
 										<div class="row">
 											<div class="col-xs-6">
 												<div class="counter-wrap text-left">
-													<span class="counter"> <?php echo get_app_leak_num(); ?> </span>
+													<span class="counter"> <?php echo $user_info['app_leak_num']; ?> </span>
 												</div>	
 											</div>
 											<div class="col-xs-6">

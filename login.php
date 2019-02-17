@@ -1,10 +1,10 @@
 <?php 
+
 	include 'modules/class/authenticate.php';
 
 	if(check_cookie() == 0) {
 		header('Location: manage_index.php');
 	}
-
 ?>
 
 <!DOCTYPE html>

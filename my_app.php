@@ -1,5 +1,5 @@
 <?php 
-	include 'modules/class/data.php';
+
 	include 'modules/class/authenticate.php';
 
 	if(check_cookie() == 0) {
@@ -15,6 +15,7 @@
 <html lang="zh">
 <head>
 	<?php include 'modules/ui/header.php'; ?>
+
 		
 	<!--alerts CSS -->
 	<link href="vendors/bower_components/sweetalert/dist/sweetalert.css" rel="stylesheet" type="text/css">

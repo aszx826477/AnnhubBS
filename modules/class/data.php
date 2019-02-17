@@ -36,6 +36,53 @@
 		return $report_protect_pdf_demo;
 	}
 
+	//To get user info
+	function get_user_info() {
+		$post_url = "http://www.annhub.cn/php/user/user_info_get.php";
+		$curl_timeout = 3;
+		$email = explode(' ', $_COOKIE['Annhub'])[0];
+		$post = [
+			"email" => $email
+		];
+		$cookie = $_COOKIE['Annhub'];
+		$header = [
+			"Cookie: Annhub=$cookie"
+		];
+
+		$curl = curl_init();
+		curl_setopt($curl, CURLOPT_URL, $post_url);
+		curl_setopt($curl, CURLOPT_POSTFIELDS, $post);
+		curl_setopt($curl, CURLOPT_TIMEOUT, $curl_timeout);	
+		curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		$res = json_decode(curl_exec($curl), true);
+		curl_close($curl);
+
+		$state_message = $res['state_message'];
+		if($state_message == 0) {		
+			$app_total_num = $res['info']['file_num'];
+			$app_protect_num = $res['info']['file_protected_num'];
+			$app_scan_num = $res['info']['file_scan_num'];
+			$app_leak_num = $res['info']['file_leak_num'];
+			$nickname = $res['info']['nickname'];
+			$register_date = $res['info']['register_date'];
+			$head_url = $res['info']['head_url'];
+
+			$user_info = array(
+				'app_total_num' => $app_total_num, 
+				'app_protect_num' => $app_protect_num,
+				'app_scan_num' => $app_scan_num,
+				'app_leak_num' => $app_leak_num,
+				'nickname' => $nickname,
+				'register_date' => $register_date,
+				'head_url' => $head_url,
+				'email' => $email);
+
+			return $user_info;
+		} 
+
+	}
+/*
 	//获取用户应用总数
 	function get_app_total_num() {
 		
@@ -154,7 +201,7 @@
 		} 
 		
 	}
-
+*/
 
 
 	//获取用户邮箱
@@ -164,7 +211,7 @@
 			return $email;
 		} 
 	}
-
+/*
 	//获取用户昵称
 	function get_nickname() {
 		$post_url = "http://www.annhub.cn/php/user/user_info_get.php";
@@ -240,7 +287,7 @@
 			return $head_url;
 		} 
 	}
-
+*/
 	//输出manage_index的table列表
 	function output_app_table() {
 		
