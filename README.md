@@ -1,7 +1,7 @@
 ## 卓护平台简介
-
-<center><img width="20%" src="https://wiki-1252789527.cos.ap-shanghai.myqcloud.com/logo.png"></img></center>
-
+<div align=center>
+    <img width="20%" src="https://wiki-1252789527.cos.ap-shanghai.myqcloud.com/logo.png"></img>
+</div>
 
 ### 何为卓护加固平台？
 
