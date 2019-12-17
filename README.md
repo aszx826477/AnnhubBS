@@ -1,6 +1,6 @@
 ## 卓护平台简介
 
-![卓护平台的logo]https://wiki-1252789527.cos.ap-shanghai.myqcloud.com/logo.png)
+![卓护平台的logo](https://wiki-1252789527.cos.ap-shanghai.myqcloud.com/logo.png)
 
 ### 何为卓护加固平台？
 
