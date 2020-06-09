@@ -1,0 +1,10 @@
+Time 2019-03-15
+
+dex2jar                 2.0         https://github.com/pxb1988/dex2jar
+enjarify                2017        https://github.com/google/enjarify  more powerful than dex2jar
+
+
+apktool                 2.4.0       https://ibotpeaches.github.io/Apktool/
+jd-core                             https://github.com/nviennot/jd-core-java
+cfr                     0.139       http://www.benf.org/other/cfr/
+procyon-decompiler      0.5.30      https://bitbucket.org/mstrobel/procyon

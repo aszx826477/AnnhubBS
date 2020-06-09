@@ -9,9 +9,4 @@
 	<link rel="shortcut icon" href="favicon.ico">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 
-	<!-- Include data.php in head.php and authenticate.php -->
-	<?php 
-		include 'modules/class/data.php';
-		$user_info = get_user_info();
-	?>
 	

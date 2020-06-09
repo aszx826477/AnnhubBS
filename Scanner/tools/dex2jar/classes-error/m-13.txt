@@ -1,0 +1,30 @@
+Landroid/support/v7/app/ToolbarActionBar;.setDisplayUseLogoEnabled(Z)V
+java.lang.RuntimeException: can not merge I and Z
+	at com.googlecode.dex2jar.ir.TypeClass.merge(TypeClass.java:100)
+	at com.googlecode.dex2jar.ir.ts.TypeTransformer$TypeRef.updateTypeClass(TypeTransformer.java:174)
+	at com.googlecode.dex2jar.ir.ts.TypeTransformer$TypeAnalyze.copyTypes(TypeTransformer.java:311)
+	at com.googlecode.dex2jar.ir.ts.TypeTransformer$TypeAnalyze.fixTypes(TypeTransformer.java:226)
+	at com.googlecode.dex2jar.ir.ts.TypeTransformer$TypeAnalyze.analyze(TypeTransformer.java:207)
+	at com.googlecode.dex2jar.ir.ts.TypeTransformer.transform(TypeTransformer.java:44)
+	at com.googlecode.d2j.dex.Dex2jar$2.optimize(Dex2jar.java:162)
+	at com.googlecode.d2j.dex.Dex2Asm.convertCode(Dex2Asm.java:414)
+	at com.googlecode.d2j.dex.ExDex2Asm.convertCode(ExDex2Asm.java:42)
+	at com.googlecode.d2j.dex.Dex2jar$2.convertCode(Dex2jar.java:128)
+	at com.googlecode.d2j.dex.Dex2Asm.convertMethod(Dex2Asm.java:509)
+	at com.googlecode.d2j.dex.Dex2Asm.convertClass(Dex2Asm.java:406)
+	at com.googlecode.d2j.dex.Dex2Asm.convertDex(Dex2Asm.java:422)
+	at com.googlecode.d2j.dex.Dex2jar.doTranslate(Dex2jar.java:172)
+	at com.googlecode.d2j.dex.Dex2jar.to(Dex2jar.java:272)
+	at com.googlecode.dex2jar.tools.Dex2jarCmd.doCommandLine(Dex2jarCmd.java:108)
+	at com.googlecode.dex2jar.tools.BaseCmd.doMain(BaseCmd.java:288)
+	at com.googlecode.dex2jar.tools.Dex2jarCmd.main(Dex2jarCmd.java:32)
+
+
+.method public setDisplayUseLogoEnabled(Z)V
+    .registers 3
+    nop
+    const/4 v0, 1
+    invoke-virtual { p0, p1, v0 }, Landroid/support/v7/app/ToolbarActionBar;->setDisplayOptions(II)V
+    nop
+    return-void
+.end method

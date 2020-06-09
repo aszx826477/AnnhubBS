@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/layout_main" android:paddingLeft="16.0dip" android:paddingTop="15.0dip" android:paddingRight="18.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:foreground="?android:selectableItemBackground"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.constraint.ConstraintLayout android:background="@drawable/item_alarm_background" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_marginTop="25.0dip" android:layout_marginBottom="25.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintTop_toTopOf="parent">
+            <TextView android:textSize="@dimen/alarm_time_text_size" android:textColor="@color/white" android:layout_gravity="center_vertical" android:id="@id/tv_time" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:textSize="@dimen/normal_text_size" android:textColor="@color/white" android:layout_gravity="center_vertical" android:id="@id/tv_repeat_rule" android:background="@drawable/shape_repeat_rule_bg" android:paddingLeft="5.0dip" android:paddingTop="3.0dip" android:paddingRight="5.0dip" android:paddingBottom="3.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" />
+        </LinearLayout>
+        <com.kyleduo.switchbutton.SwitchButton android:id="@id/btn_open_alarm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="20.0dip" android:layout_alignParentRight="true" app:kswBackColor="#ffc73348" app:kswThumbDrawable="@drawable/selector_switch_btn" app:kswThumbMargin="-5.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" style="@style/SwitchButtonMD" />
+        <View android:id="@id/v_shadow" android:background="@drawable/shape_v_shadow_bg" android:layout_width="fill_parent" android:layout_height="0.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+</RelativeLayout>

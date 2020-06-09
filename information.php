@@ -1,13 +1,15 @@
 <?php 
+    #Include data.php and authenticate.php
+    include 'modules/class/authenticate.php';
+    include 'modules/class/data.php';
 
-	include 'modules/class/authenticate.php';
-
-	if(check_cookie() == 0) {
-		session_start();	
-	} else {
-		$code = check_cookie();
-		header("Location: modules/class/error.php?code=$code");
-	}
+    if(check_cookie() == 0) {
+        session_start();
+        $user_info = get_user_info();
+    } else {
+        $code = check_cookie();
+        header("Location: modules/class/error.php?code=$code");
+    }
 
 ?>
 
@@ -91,7 +93,7 @@
 																<input name="file" id="fileSelector" type="file" class="upload">
 															</div>
 
-															<button id="head_upload_btn" type="submit" class="btn btn-success btn-block" title="只允许上传jpg格式的文件"">上传</button>
+															<button id="head_upload_btn" type="submit" class="btn btn-success btn-block" title="只允许上传jpg格式的文件">上传</button>
 														</form>
 													</div>
 													
@@ -265,27 +267,22 @@
 	
 	<!-- JavaScript -->
 		
-		<!-- jQuery -->
-		<script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
-		<script src="dist/js_assist/jquery.form.js"></script>
-		
-		<!-- Bootstrap Core JavaScript -->
-		<script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<?php include 'modules/ui/js_public.php'; ?>
+
 		<!-- Slimscroll JavaScript -->
 		<script src="dist/js/jquery.slimscroll.js"></script>
 
 		<!-- Sweet-Alert  -->
 		<script src="vendors/bower_components/sweetalert/dist/sweetalert.min.js"></script>
 
-		<!-- js assit -->
-		<script src="dist/js_assist/information-page.js"></script>
-
-
 		<!-- Fancy Dropdown JS -->
 		<script src="dist/js/dropdown-bootstrap-extended.js"></script>
 				
 		<!-- Init JavaScript -->
 		<script src="dist/js/init.js"></script>
+
+        <!-- 自定义的js -->
+        <script src="dist/js-custom/information-custom.js"></script>
 
 	
 

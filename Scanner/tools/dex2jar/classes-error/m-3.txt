@@ -1,0 +1,35 @@
+Landroid/support/v4/content/FileProvider;.delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
+java.lang.RuntimeException: can not merge I and Z
+	at com.googlecode.dex2jar.ir.TypeClass.merge(TypeClass.java:100)
+	at com.googlecode.dex2jar.ir.ts.TypeTransformer$TypeRef.updateTypeClass(TypeTransformer.java:174)
+	at com.googlecode.dex2jar.ir.ts.TypeTransformer$TypeAnalyze.provideAs(TypeTransformer.java:780)
+	at com.googlecode.dex2jar.ir.ts.TypeTransformer$TypeAnalyze.enexpr(TypeTransformer.java:659)
+	at com.googlecode.dex2jar.ir.ts.TypeTransformer$TypeAnalyze.exExpr(TypeTransformer.java:719)
+	at com.googlecode.dex2jar.ir.ts.TypeTransformer$TypeAnalyze.exExpr(TypeTransformer.java:703)
+	at com.googlecode.dex2jar.ir.ts.TypeTransformer$TypeAnalyze.s1stmt(TypeTransformer.java:810)
+	at com.googlecode.dex2jar.ir.ts.TypeTransformer$TypeAnalyze.sxStmt(TypeTransformer.java:840)
+	at com.googlecode.dex2jar.ir.ts.TypeTransformer$TypeAnalyze.analyze(TypeTransformer.java:206)
+	at com.googlecode.dex2jar.ir.ts.TypeTransformer.transform(TypeTransformer.java:44)
+	at com.googlecode.d2j.dex.Dex2jar$2.optimize(Dex2jar.java:162)
+	at com.googlecode.d2j.dex.Dex2Asm.convertCode(Dex2Asm.java:414)
+	at com.googlecode.d2j.dex.ExDex2Asm.convertCode(ExDex2Asm.java:42)
+	at com.googlecode.d2j.dex.Dex2jar$2.convertCode(Dex2jar.java:128)
+	at com.googlecode.d2j.dex.Dex2Asm.convertMethod(Dex2Asm.java:509)
+	at com.googlecode.d2j.dex.Dex2Asm.convertClass(Dex2Asm.java:406)
+	at com.googlecode.d2j.dex.Dex2Asm.convertDex(Dex2Asm.java:422)
+	at com.googlecode.d2j.dex.Dex2jar.doTranslate(Dex2jar.java:172)
+	at com.googlecode.d2j.dex.Dex2jar.to(Dex2jar.java:272)
+	at com.googlecode.dex2jar.tools.Dex2jarCmd.doCommandLine(Dex2jarCmd.java:108)
+	at com.googlecode.dex2jar.tools.BaseCmd.doMain(BaseCmd.java:288)
+	at com.googlecode.dex2jar.tools.Dex2jarCmd.main(Dex2jarCmd.java:32)
+
+
+.method public delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
+    .registers 6
+    iget-object v0, p0, Landroid/support/v4/content/FileProvider;->mStrategy:Landroid/support/v4/content/FileProvider$PathStrategy;
+    invoke-interface { v0, p1 }, Landroid/support/v4/content/FileProvider$PathStrategy;->getFileForUri(Landroid/net/Uri;)Ljava/io/File;
+    move-result-object v0
+    invoke-virtual { v0 }, Ljava/io/File;->delete()Z
+    move-result v1
+    return v1
+.end method

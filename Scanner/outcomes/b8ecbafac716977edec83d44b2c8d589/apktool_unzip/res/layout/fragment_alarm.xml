@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/layout_title_alarm" android:background="@color/colorPrimary" android:layout_width="fill_parent" android:layout_height="@dimen/app_title_height">
+        <TextView android:textSize="18.0sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/alarm" android:layout_centerInParent="true" />
+        <ImageView android:id="@id/img_add" android:padding="13.0dip" android:layout_width="@dimen/app_title_height" android:layout_height="fill_parent" android:foreground="?actionBarItemBackground" android:src="@mipmap/img_add_alarm" android:layout_alignParentRight="true" />
+        <ImageView android:id="@id/img_xiaoshuo" android:visibility="gone" android:layout_width="50.0dip" android:layout_height="fill_parent" android:layout_marginLeft="15.0dip" android:src="@drawable/img_xiaoshuo_white" />
+    </RelativeLayout>
+    <android.support.v7.widget.RecyclerView android:id="@id/list_main" android:background="@color/colorPrimary" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/layout_title_alarm" />
+</RelativeLayout>

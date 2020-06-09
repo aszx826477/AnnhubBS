@@ -1,13 +1,16 @@
 <?php 
 
-	include 'modules/class/authenticate.php';
+	#Include data.php and authenticate.php
+    include 'modules/class/authenticate.php';
+    include 'modules/class/data.php';
 
-	if(check_cookie() == 0) {
-		session_start();	
-	} else {
-		$code = check_cookie();
-		header("Location: modules/class/error.php?code=$code");
-	}
+    if(check_cookie() == 0) {
+        session_start();
+        $user_info = get_user_info();
+    } else {
+        $code = check_cookie();
+        header("Location: modules/class/error.php?code=$code");
+    }
 
 ?>
 
@@ -53,6 +56,7 @@
 						<h5 class="txt-light">控制台</h5>
 					</div>
 				</div>
+				
 				<!-- /Title -->
 				<!-- Row -->
 				<div class="row">
@@ -224,14 +228,9 @@
 	
 	<!-- JavaScript -->
 	
-    <!-- jQuery -->
-    <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+   	<?php include 'modules/ui/js_public.php'; ?>
     
 
-	
 	<!-- Data table JavaScript -->
 	<script src="vendors/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
 	
@@ -256,6 +255,7 @@
 	
 	<!-- Init JavaScript -->
 	<script src="dist/js/init.js"></script>
+
 
 </body>
 </html>

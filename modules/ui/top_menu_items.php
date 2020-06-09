@@ -21,9 +21,10 @@
 							<li class="divider"></li>
 						
 							<li>
-							
+														
+								<a id="logout-option" href='modules/class/authenticate.php?fun=logout'><i class="fa fa-fw fa-power-off"></i> 登出</a>
 								
-								<a href="modules/class/authenticate.php?fun=logout"><i class="fa fa-fw fa-power-off"></i> 登出</a>
+    
 							</li>
 						</ul>
 					</li>

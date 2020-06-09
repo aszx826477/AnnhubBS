@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout android:id="@id/layout_drawer" android:background="@color/colorPrimary" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.constraint.ConstraintLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textSize="@dimen/title_text_size" android:textColor="@color/white" android:gravity="center" android:id="@id/tv_title" android:layout_width="wrap_content" android:layout_height="50.0dip" android:text="计时" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" />
+        <android.support.constraint.ConstraintLayout android:id="@id/layout_timing_title" android:paddingRight="10.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="50.0dip" app:layout_constraintRight_toRightOf="parent">
+            <ImageView android:id="@id/img_to_time_page" android:paddingTop="18.0dip" android:paddingBottom="18.0dip" android:layout_width="20.0dip" android:layout_height="50.0dip" android:src="@mipmap/img_next" app:layout_constraintRight_toRightOf="parent" />
+            <TextView android:textColor="@color/white" android:gravity="center" android:layout_width="wrap_content" android:layout_height="50.0dip" android:text="计时中" app:layout_constraintRight_toLeftOf="@id/img_to_time_page" />
+        </android.support.constraint.ConstraintLayout>
+        <TextView android:textSize="@dimen/normal_text_size" android:textColor="@color/white" android:id="@id/tv_normal_title" android:paddingLeft="20.0dip" android:paddingTop="15.0dip" android:paddingBottom="15.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="常规计时" app:layout_constraintTop_toBottomOf="@id/tv_title" />
+        <ImageView android:id="@id/img_cut_down_time" android:layout_width="70.0dip" android:layout_height="70.0dip" android:layout_marginLeft="15.0dip" android:src="@mipmap/img_cut_down_time" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintTop_toBottomOf="@id/tv_normal_title" />
+        <ImageView android:id="@id/img_stopwatch" android:layout_width="70.0dip" android:layout_height="70.0dip" android:layout_marginLeft="10.0dip" android:src="@mipmap/img_stopwatch" app:layout_constraintLeft_toRightOf="@id/img_cut_down_time" app:layout_constraintTop_toBottomOf="@id/tv_normal_title" />
+        <TextView android:textSize="@dimen/normal_text_size" android:textColor="@color/white" android:id="@id/tv_fast_title" android:padding="15.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="快捷计时" app:layout_constraintTop_toBottomOf="@id/img_stopwatch" />
+        <ImageView android:id="@id/img_noodles" android:layout_width="70.0dip" android:layout_height="70.0dip" android:layout_marginLeft="15.0dip" android:src="@mipmap/img_noodles" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintTop_toBottomOf="@id/tv_fast_title" />
+        <ImageView android:id="@id/img_snap" android:layout_width="70.0dip" android:layout_height="70.0dip" android:layout_marginLeft="10.0dip" android:src="@mipmap/img_snap" app:layout_constraintLeft_toRightOf="@id/img_noodles" app:layout_constraintTop_toBottomOf="@id/tv_fast_title" />
+        <ImageView android:id="@id/img_skin" android:layout_width="70.0dip" android:layout_height="70.0dip" android:layout_marginLeft="10.0dip" android:src="@mipmap/img_skin" app:layout_constraintLeft_toRightOf="@id/img_snap" app:layout_constraintTop_toBottomOf="@id/tv_fast_title" />
+    </android.support.constraint.ConstraintLayout>
+    <include android:tag="LEFT" layout="@layout/activity_timing" />
+</android.support.v4.widget.DrawerLayout>

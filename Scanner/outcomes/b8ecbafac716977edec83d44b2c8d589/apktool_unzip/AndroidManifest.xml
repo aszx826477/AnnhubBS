@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.pm.clock" android:sharedUserId="android.uid.system">
+
+
+<permission
+    android:name="TEST_GO"
+    android:label="@string/app_name"
+    android:permissionGroup="asdadasd"
+    android:protectionLevel="signature" >
+</permission>
+
+12213132123132123123
+
+<permission
+    android:name="TEST_GO"
+    android:label="@string/app_name"
+    android:permissionGroup=""
+    android:protectionLevel="normal" >
+</permission>
+
+
+[ 'asdadasd', '']
+
+
+
+
+
+
+
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.SET_ALARM"/>
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+
+
+    <uses-permssion android.name="android.permission.ACCESS_MOCK_LOCATION">
+
+
+
+    <application android:allowBackup="true" android:appComponentFactory="android.support.v4.app.CoreComponentFactory" android:icon="@drawable/img_icon" android:label="@string/app_name" android:name="com.stub.StubApp" android:roundIcon="@drawable/img_icon" android:supportsRtl="true" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+        <meta-data android:name="UMENG_APPKEY" android:value="5bf22a01b465f5d97200011c"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="qh360"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <service android:name="com.aso114.adl.service.DownloadService"/>
+        <provider android:authorities="com.pm.clock.fileProvider" android:exported="true" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/gdt_file_path"/>
+        </provider>
+        <service android:exported="false" android:name="com.qq.e.comm.DownloadService"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.qq.e.ads.ADActivity"/>
+        <receiver android:exported="true" android:name="com.sjsj.clockapp.clockmaster.alarmpage.broadcastReceiver.AlarmBroadCastReceiver" android:process=":newinst">
+            <intent-filter>
+                <action android:name="com.sjsj.alarm.clock"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/app_name" android:name="com.sjsj.clockapp.clockmaster.base.activity.WelcomeActivity" android:screenOrientation="portrait" android:theme="@style/AppBaseWelcomeTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:permission="dangerous" android:name="com.sjsj.clockapp.clockmaster.base.activity.HomeActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:permission="normal" android:name="com.sjsj.clockapp.clockmaster.alarmpage.activity.AddAlarmActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sjsj.clockapp.clockmaster.alarmpage.activity.AlarmRingActivity" android:screenOrientation="portrait" android:theme="@style/AppBaseWelcomeTheme"/>
+        <service android:enabled="true" android:exported="true" android:name="com.sjsj.clockapp.clockmaster.base.service.GrayService"/>
+        <activity android:name="com.sjsj.clockapp.clockmaster.alarmpage.activity.SettingAlarmActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sjsj.clockapp.clockmaster.alarmpage.activity.ChangeAlarmActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sjsj.clockapp.clockmaster.base.activity.AppSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sjsj.clockapp.clockmaster.tiimingpage.activity.TimingActivity"/>
+        <activity android:name="com.sjsj.clockapp.clockmaster.stopwatchpage.activity.StopwatchActivity"/>
+        <activity android:name="com.sjsj.clockapp.clockmaster.base.activity.ReadWapActivity"/>
+        <activity android:name="com.sjsj.clockapp.clockmaster.base.activity.AgreementActivity" android:theme="@style/TranslucentTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="me.weyye.hipermission.PermissionActivity" android:screenOrientation="portrait" android:theme="@style/CustomTheme_Dialog"/>
+
+
+        <activity android:name="com.utils.Error"/>
+	    <activity android:name="com.utils.Mysql"/>
+
+        <service android:name="com.test.ShowNewFeatures" />
+        <provider android:name="com.http.DebugDisplayMusic" />
+
+        <activity android:name="com.test.05011" android:exported="true"/>
+
+        <activity android:name="com.test.06001" android:exported="true"/>
+
+        <activity android:name="com.test.12" android:exported="true"/>
+    </application>
+</manifest>

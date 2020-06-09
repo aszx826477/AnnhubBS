@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/layout_title" layout="@layout/layout_header_title_with_back_btn" />
+    <android.support.v7.widget.RecyclerView android:id="@id/list_main" android:background="@color/colorPrimary" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/layout_title" />
+</RelativeLayout>

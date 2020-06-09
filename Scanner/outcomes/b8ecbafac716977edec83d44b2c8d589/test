@@ -1,0 +1,1456 @@
+
+package com.qihoo.util;
+
+import android.location.Location;
+import android.location.LocationManager;
+import java.io.File;
+import java.io.InputStream;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
+import java.util.Enumeration;
+import dalvik.system.DexFile;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.Map;
+import android.content.Context;
+import android.app.Application;
+
+public class LiteApplication extends Application
+{
+    private static boolean loadDexToC;
+    private static boolean selfLoad;
+    private static Application \u1d62\u02cb;
+    private static Context \u1d62\u02ce;
+    private static String \u1d62\u02cf;
+    private static Map \u1d62\u02d1;
+    
+    static {
+        LiteApplication.\u1d62\u02cf = null;
+        LiteApplication.loadDexToC = false;
+        LiteApplication.\u1d62\u02d1 = new ConcurrentHashMap();
+        LiteApplication.selfLoad = true;
+    }
+    
+    public static Context getAppContext() {
+        return LiteApplication.\u1d62\u02ce;
+    }
+    
+    public static String getDir() {
+        return LiteApplication.\u1d62\u02cf;
+    }
+    
+    public static String getString2(final int n) {
+        String interface14 = LiteApplication.\u1d62\u02d1.get(n);
+        if (interface14 == null) {
+            interface14 = interface14(n);
+            LiteApplication.\u1d62\u02d1.put(n, interface14);
+        }
+        return interface14;
+    }
+    
+    public static String getString2(final String s) {
+        try {
+            final int int1 = Integer.parseInt(s);
+            try {
+                return getString2(int1);
+            }
+            catch (NumberFormatException ex) {
+                final String string2 = null;
+            }
+        }
+        catch (NumberFormatException ex2) {}
+    }
+    
+    public static native void interface10(final Context p0);
+    
+    public static native void interface11(final int p0);
+    
+    public static native Enumeration interface12(final DexFile p0);
+    
+    public static native String interface14(final int p0);
+    
+    public static native AssetFileDescriptor interface17(final AssetManager p0, final String p1);
+    
+    public static native InputStream interface18(final Class p0, final String p1);
+    
+    public static native InputStream interface19(final ClassLoader p0, final String p1);
+    
+    public static native boolean interface20();
+    
+    public static native void interface5(final Application p0);
+    
+    public static native String interface6(final String p0);
+    
+    public static native boolean interface7(final Application p0, final Context p1);
+    
+    public static native boolean interface8(final Application p0, final Context p1);
+    
+    public static void load() {
+        Label_0017: {
+            if (!\u1d62\u02cb()) {
+                break Label_0017;
+            }
+            final String s = "jiagu_x86";
+            try {
+                System.loadLibrary(s);
+                return;
+            }
+            finally {}
+        }
+        System.loadLibrary("jiagu");
+    }
+    
+    public static void load(final Application \u1d62\u02cb, final Context \u1d62\u02ce) {
+        final int n = 1;
+        LiteApplication.\u1d62\u02cb = \u1d62\u02cb;
+        LiteApplication.\u1d62\u02ce = \u1d62\u02ce;
+        if (\u1d62\u02ce != null) {
+            final File filesDir = LiteApplication.\u1d62\u02ce.getFilesDir();
+            if (filesDir != null) {
+                LiteApplication.\u1d62\u02cf = filesDir.getParentFile().getAbsolutePath() + "/.jiagu";
+            }
+        }
+        if (!interface20()) {
+            System.exit(n);
+        }
+        while (true) {
+            if (!LiteApplication.loadDexToC) {
+                break Label_0099;
+            }
+            final String s = "jgdtc";
+            try {
+                System.loadLibrary(s);
+                interface5(LiteApplication.\u1d62\u02cb);
+                final String s2 = "com.qihoo.bugreport.CrashReport";
+                try {
+                    final Class<?> forName = Class.forName(s2);
+                    forName.getDeclaredMethod("prepareInit", (Class<?>[])new Class[0]).invoke(null, new Object[0]);
+                    forName.getDeclaredMethod("init", Context.class).invoke(null, LiteApplication.\u1d62\u02cb);
+                }
+                finally {}
+            }
+            catch (Error error) {
+                continue;
+            }
+            break;
+        }
+    }
+    
+    public static native Location mark(final LocationManager p0, final String p1);
+    
+    public static native void mark();
+    
+    public static native void mark(final Location p0);
+    
+    private static boolean \u1d62\u02cb() {
+        throw new IllegalStateException("An error occurred while decompiling this method.");
+    }
+    
+    protected void attachBaseContext(final Context context) {
+        super.attachBaseContext(context);
+        if (LiteApplication.selfLoad) {
+            load();
+        }
+        load(this, context);
+    }
+}
+
+package com.qihoo.util;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface$OnClickListener;
+import android.app.AlertDialog$Builder;
+import android.os.Looper;
+import android.content.Context;
+
+final class \u1d62\u02cb implements Runnable
+{
+    private  Context \u1d62\u02cb;
+    private  String \u1d62\u02ce;
+    
+    \u1d62\u02cb(final Context \u1d62\u02cb, final String \u1d62\u02ce) {
+        this.\u1d62\u02cb = \u1d62\u02cb;
+        this.\u1d62\u02ce = \u1d62\u02ce;
+    }
+    
+    public final void run() {
+        Looper.prepare();
+        final AlertDialog create = new AlertDialog$Builder(this.\u1d62\u02cb).setMessage((CharSequence)this.\u1d62\u02ce).setCancelable(false).setPositiveButton((CharSequence)"\u786e\u5b9a", (DialogInterface$OnClickListener)new \u1d62\u02ce(this)).create();
+        create.getWindow().setType(2005);
+        create.show();
+        Looper.loop();
+    }
+}
+
+package com.qihoo.util;
+
+import java.io.File;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.Map;
+import android.content.Context;
+import android.app.Application;
+
+public class OverseaApplication extends Application
+{
+    private static boolean loadDexToC;
+    private static boolean selfLoad;
+    private static Context \u1d62\u02cb;
+    private static String \u1d62\u02ce;
+    private static Map \u1d62\u02cf;
+    
+    static {
+        OverseaApplication.\u1d62\u02ce = null;
+        OverseaApplication.loadDexToC = false;
+        OverseaApplication.\u1d62\u02cf = new ConcurrentHashMap();
+        OverseaApplication.selfLoad = true;
+    }
+    
+    public static Context getAppContext() {
+        return OverseaApplication.\u1d62\u02cb;
+    }
+    
+    public static String getDir() {
+        return OverseaApplication.\u1d62\u02ce;
+    }
+    
+    public static String getString2(final int n) {
+        String interface14 = OverseaApplication.\u1d62\u02cf.get(n);
+        if (interface14 == null) {
+            interface14 = interface14(n);
+            OverseaApplication.\u1d62\u02cf.put(n, interface14);
+        }
+        return interface14;
+    }
+    
+    public static String getString2(final String s) {
+        try {
+            final int int1 = Integer.parseInt(s);
+            try {
+                return getString2(int1);
+            }
+            catch (NumberFormatException ex) {
+                final String string2 = null;
+            }
+        }
+        catch (NumberFormatException ex2) {}
+    }
+    
+    public static native void interface11(final int p0);
+    
+    public static native String interface14(final int p0);
+    
+    public static native boolean interface20();
+    
+    public static void load() {
+        Label_0017: {
+            if (!\u1d62\u02cb()) {
+                break Label_0017;
+            }
+            final String s = "safety_x86";
+            try {
+                System.loadLibrary(s);
+                return;
+            }
+            finally {}
+        }
+        System.loadLibrary("safety");
+    }
+    
+    public static void load(final Application application, final Context \u1d62\u02cb) {
+        OverseaApplication.\u1d62\u02cb = \u1d62\u02cb;
+        if (\u1d62\u02cb != null) {
+            final File filesDir = OverseaApplication.\u1d62\u02cb.getFilesDir();
+            if (filesDir != null) {
+                OverseaApplication.\u1d62\u02ce = filesDir.getParentFile().getAbsolutePath() + "/.jiagu";
+            }
+        }
+        if (!interface20()) {
+            System.exit(1);
+        }
+        if (!OverseaApplication.loadDexToC) {
+            return;
+        }
+        final String s = "jgdtc";
+        try {
+            System.loadLibrary(s);
+        }
+        catch (Error error) {}
+    }
+    
+    private static boolean \u1d62\u02cb() {
+        throw new IllegalStateException("An error occurred while decompiling this method.");
+    }
+    
+    protected void attachBaseContext(final Context context) {
+        super.attachBaseContext(context);
+        if (OverseaApplication.selfLoad) {
+            load();
+        }
+        load(this, context);
+    }
+}
+
+package com.qihoo.util;
+
+import android.os.Build$VERSION;
+import android.content.Context;
+
+public class QHDialog
+{
+    public static void showDialog(final Context context, final String s) {
+        final Thread thread = new Thread(new \u1d62\u02cb(context, s));
+        synchronized (thread) {
+            try {
+                thread.start();
+                if (Build$VERSION.SDK_INT >= 19) {
+                    thread.wait();
+                }
+                else {
+                    Thread.sleep(3000L);
+                }
+            }
+            catch (InterruptedException ex) {}
+        }
+    }
+}
+
+package com.qihoo.util;
+
+import android.os.Build$VERSION;
+import android.content.DialogInterface;
+import android.content.DialogInterface$OnClickListener;
+
+final class \u1d62\u02ce implements DialogInterface$OnClickListener
+{
+    \u1d62\u02ce(final \u1d62\u02cb \u1d62\u02cb) {
+    }
+    
+    public final void onClick(final DialogInterface dialogInterface, final int n) {
+        final Thread currentThread = Thread.currentThread();
+        synchronized (currentThread) {
+            if (Build$VERSION.SDK_INT >= 19) {
+                currentThread.notify();
+            }
+        }
+    }
+}
+
+package com.qihoo.util;
+
+public class Configuration
+{
+    public static boolean ENABLE_CRASH_REPORT;
+    public static boolean ENABLE_PT;
+    
+    static {
+        Configuration.ENABLE_CRASH_REPORT = true;
+        Configuration.ENABLE_PT = false;
+    }
+}
+
+package com.qihoo.util;
+
+import android.location.Location;
+import android.location.LocationManager;
+import java.io.InputStream;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
+import java.util.Enumeration;
+import dalvik.system.DexFile;
+import java.util.HashMap;
+import java.util.Map;
+import android.content.Context;
+import android.app.Application;
+
+public class GameApplication extends Application
+{
+    private static Application \u1d62\u02cb;
+    private static Context \u1d62\u02ce;
+    private static String \u1d62\u02cf;
+    private static Map \u1d62\u02d1;
+    
+    static {
+        GameApplication.\u1d62\u02cf = null;
+        GameApplication.\u1d62\u02d1 = new HashMap();
+    }
+    
+    public static Context getAppContext() {
+        return GameApplication.\u1d62\u02ce;
+    }
+    
+    public static String getDir() {
+        return GameApplication.\u1d62\u02cf;
+    }
+    
+    public static String getString2(final String s) {
+        try {
+            final int int1 = Integer.parseInt(s);
+            try {
+                final Map \u1d62\u02d1 = GameApplication.\u1d62\u02d1;
+                try {
+                    final String value = \u1d62\u02d1.get(int1);
+                    try {
+                        String interface14 = value;
+                        if (interface14 != null) {
+                            return interface14;
+                        }
+                        interface14 = interface14(int1);
+                        try {
+                            final Map \u1d62\u02d12 = GameApplication.\u1d62\u02d1;
+                            try {
+                                \u1d62\u02d12.put(int1, interface14);
+                                return interface14;
+                            }
+                            catch (NumberFormatException ex) {
+                                interface14 = null;
+                            }
+                        }
+                        catch (NumberFormatException ex2) {}
+                    }
+                    catch (NumberFormatException ex3) {}
+                }
+                catch (NumberFormatException ex4) {}
+            }
+            catch (NumberFormatException ex5) {}
+        }
+        catch (NumberFormatException ex6) {}
+    }
+    
+    public static native void interface10(final Context p0);
+    
+    public static native void interface11(final int p0);
+    
+    public static native Enumeration interface12(final DexFile p0);
+    
+    public static native String interface14(final int p0);
+    
+    public static native AssetFileDescriptor interface17(final AssetManager p0, final String p1);
+    
+    public static native InputStream interface18(final Class p0, final String p1);
+    
+    public static native InputStream interface19(final ClassLoader p0, final String p1);
+    
+    public static native void interface20();
+    
+    public static native void interface5(final Application p0);
+    
+    public static native String interface6(final String p0);
+    
+    public static native boolean interface7(final Application p0, final Context p1);
+    
+    public static native boolean interface8(final Application p0, final Context p1);
+    
+    public static void load(final Application p0, final Context p1) {
+        throw new IllegalStateException("An error occurred while decompiling this method.");
+    }
+    
+    public static native Location mark(final LocationManager p0, final String p1);
+    
+    public static native void mark();
+    
+    public static native void mark(final Location p0);
+    
+    private static boolean \u1d62\u02cb() {
+        throw new IllegalStateException("An error occurred while decompiling this method.");
+    }
+    
+    protected void attachBaseContext(final Context context) {
+        super.attachBaseContext(context);
+        load(this, context);
+    }
+}
+public class MainActivity extends AppCompatActivity {
+    private WebView webView;
+    private ProgressBar progressBar;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        progressBar= (ProgressBar)findViewById(R.id.progressbar);
+
+        webView = (WebView) findViewById(R.id.webview);
+        webView.loadUrl("http://139.196.35.30:8080/OkHttpTest/apppackage/test.html");
+
+
+        webView.addJavascriptInterface(this,"android");
+        webView.setWebChromeClient(webChromeClient);
+        webView.setWebViewClient(webViewClient);
+
+        WebSettings webSettings=webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+
+        
+        webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
+
+        webSettings.setSupportZoom(true);
+        webSettings.setBuiltInZoomControls(true);
+
+    }
+
+    private WebViewClient webViewClient=new WebViewClient(){
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            progressBar.setVisibility(View.GONE);
+        }
+
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            progressBar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            Log.i("ansen","拦截url:"+url);
+            if(url.equals("http://www.google.com/")){
+                Toast.makeText(MainActivity.this,"国内不能访问google,拦截该url",Toast.LENGTH_LONG).show();
+                return true;
+            }
+            return super.shouldOverrideUrlLoading(view, url);
+        }
+
+    };
+
+    private WebChromeClient webChromeClient=new WebChromeClient(){
+        @Override
+        public boolean onJsAlert(WebView webView, String url, String message, JsResult result) {
+            AlertDialog.Builder localBuilder = new AlertDialog.Builder(webView.getContext());
+            localBuilder.setMessage(message).setPositiveButton("确定",null);
+            localBuilder.setCancelable(false);
+            localBuilder.create().show();
+
+            result.confirm();
+            return true;
+        }
+
+        @Override
+        public void onReceivedTitle(WebView view, String title) {
+            super.onReceivedTitle(view, title);
+            Log.i("ansen","网页标题:"+title);
+        }
+
+        @Override
+        public void onProgressChanged(WebView view, int newProgress) {
+            progressBar.setProgress(newProgress);
+        }
+    };
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        Log.i("ansen","是否有上一个页面:"+webView.canGoBack());
+        if (webView.canGoBack() && keyCode == KeyEvent.KEYCODE_BACK){
+            webView.goBack(); 
+            return true;
+        }
+        return super.onKeyDown(keyCode,event);
+    }
+
+    
+    @JavascriptInterface //仍然必不可少
+    public void  getClient(String str){
+        Log.i("ansen","html调用客户端:"+str);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        webView.destroy();
+        webView=null;
+    }
+}
+
+
+package com.stub;
+
+import com.qihoo.util.Configuration;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import android.content.res.Resources;
+import java.io.FileOutputStream;
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.File;
+import android.os.Build$VERSION;
+import android.location.Location;
+import android.location.LocationManager;
+import java.io.InputStream;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
+import java.util.Enumeration;
+import dalvik.system.DexFile;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.Map;
+import android.content.Context;
+import android.app.Application;
+
+public final class StubApp extends Application
+{
+    private static boolean loadDexToC;
+    private static boolean loadFromLib;
+    private static boolean needX86Bridge;
+    public static String strEntryApplication;
+    private static Application \u1d62\u02cb;
+    private static Application \u1d62\u02ce;
+    private static String \u1d62\u02cf;
+    private static Context \u1d62\u02d1;
+    private static String \u1d62\u05d9;
+    private static String \u1d62\u0640;
+    private static String \u1d62\u0674;
+    private static String \u1d62\u1427;
+    private static String \u1d62\u1d35;
+    private static Map \u1d62\u1d4e;
+    
+    static {
+        StubApp.\u1d62\u02cb = null;
+        StubApp.strEntryApplication = "com.qihoo360.crypt.entryRunApplication";
+        StubApp.\u1d62\u02ce = null;
+        StubApp.\u1d62\u02cf = "libjiagu";
+        StubApp.loadFromLib = false;
+        StubApp.needX86Bridge = false;
+        StubApp.loadDexToC = false;
+        StubApp.\u1d62\u05d9 = null;
+        StubApp.\u1d62\u0640 = null;
+        StubApp.\u1d62\u0674 = null;
+        StubApp.\u1d62\u1427 = null;
+        StubApp.\u1d62\u1d35 = null;
+        StubApp.\u1d62\u1d4e = new ConcurrentHashMap();
+    }
+    
+    public static Context getAppContext() {
+        return StubApp.\u1d62\u02d1;
+    }
+    
+    public static String getDir() {
+        return StubApp.\u1d62\u1427;
+    }
+    
+    public static Context getOrigApplicationContext(Context \u1d62\u02ce) {
+        if (\u1d62\u02ce == StubApp.\u1d62\u02cb) {
+            \u1d62\u02ce = (Context)StubApp.\u1d62\u02ce;
+        }
+        return \u1d62\u02ce;
+    }
+    
+    public static String getSoPath1() {
+        return StubApp.\u1d62\u0640;
+    }
+    
+    public static String getSoPath2() {
+        return StubApp.\u1d62\u0674;
+    }
+    
+    public static String getString2(final int n) {
+        String interface14 = StubApp.\u1d62\u1d4e.get(n);
+        if (interface14 == null) {
+            interface14 = interface14(n);
+            StubApp.\u1d62\u1d4e.put(n, interface14);
+        }
+        return interface14;
+    }
+    
+    public static String getString2(final String s) {
+        try {
+            final int int1 = Integer.parseInt(s);
+            try {
+                return getString2(int1);
+            }
+            catch (NumberFormatException ex) {
+                ex.printStackTrace();
+                final String string2 = null;
+            }
+        }
+        catch (NumberFormatException ex2) {}
+    }
+    
+    public static native void interface11(final int p0);
+    
+    public static native Enumeration interface12(final DexFile p0);
+    
+    public static native long interface13(final int p0, final long p1, final long p2, final long p3, final int p4, final int p5, final long p6);
+    
+    public static native String interface14(final int p0);
+    
+    public static native AssetFileDescriptor interface17(final AssetManager p0, final String p1);
+    
+    public static native InputStream interface18(final Class p0, final String p1);
+    
+    public static native InputStream interface19(final ClassLoader p0, final String p1);
+    
+    public static native void interface20();
+    
+    public static native void interface5(final Application p0);
+    
+    public static native String interface6(final String p0);
+    
+    public static native boolean interface7(final Application p0, final Context p1);
+    
+    public static native boolean interface8(final Application p0, final Context p1);
+    
+    public static boolean isX86Arch() {
+        throw new IllegalStateException("An error occurred while decompiling this method.");
+    }
+    
+    public static native Location mark(final LocationManager p0, final String p1);
+    
+    public static native void mark();
+    
+    public static native void mark(final Location p0);
+    
+    public static native boolean n01031(final Object p0);
+    
+    public static native void n0103210(final Object p0, final long p1, final boolean p2);
+    
+    public static native Object n01033(final Object p0);
+    
+    public static native Object n010333(final Object p0, final Object p1);
+    
+    public static native void n0110();
+    
+    public static native int n0111();
+    
+    public static native void n01110(final int p0);
+    
+    public static native int n01111(final int p0);
+    
+    public static native int n011111(final int p0, final int p1);
+    
+    public static native int n0111111(final int p0, final byte p1, final short p2);
+    
+    public static native Object n011111113(final boolean p0, final int p1, final int p2, final byte p3, final byte p4);
+    
+    public static native Object n011113(final byte p0, final byte p1);
+    
+    public static native boolean n0111131331(final boolean p0, final boolean p1, final Object p2, final boolean p3, final Object p4, final Object p5);
+    
+    public static native boolean n01111313331(final boolean p0, final boolean p1, final Object p2, final boolean p3, final Object p4, final Object p5, final Object p6);
+    
+    public static native Object n01113(final int p0);
+    
+    public static native Object n011133(final int p0, final Object p1);
+    
+    public static native long n0112();
+    
+    public static native void n01120(final long p0);
+    
+    public static native boolean n01121(final long p0);
+    
+    public static native int n011211(final long p0, final int p1);
+    
+    public static native long n01122(final long p0);
+    
+    public static native long n011222(final long p0, final long p1);
+    
+    public static native void n0112220(final long p0, final long p1, final long p2);
+    
+    public static native Object n01123(final long p0);
+    
+    public static native Object n01123313(final long p0, final Object p1, final Object p2, final int p3);
+    
+    public static native Object n0112333(final long p0, final Object p1, final Object p2);
+    
+    public static native boolean n011233331(final long p0, final Object p1, final Object p2, final Object p3, final Object p4);
+    
+    public static native Object n0113();
+    
+    public static native void n01130(final Object p0);
+    
+    public static native boolean n01131(final Object p0);
+    
+    public static native void n011310(final Object p0, final int p1);
+    
+    public static native int n011311(final Object p0, final int p1);
+    
+    public static native int n0113111(final Object p0, final int p1, final int p2);
+    
+    public static native int n01131111(final Object p0, final int p1, final int p2, final boolean p3);
+    
+    public static native Object n01131113(final Object p0, final int p1, final int p2, final boolean p3);
+    
+    public static native long n0113112(final Object p0, final int p1, final int p2);
+    
+    public static native Object n0113113(final Object p0, final int p1, final int p2);
+    
+    public static native int n01131131(final Object p0, final int p1, final int p2, final Object p3);
+    
+    public static native boolean n011311311(final Object p0, final int p1, final int p2, final Object p3, final int p4);
+    
+    public static native Object n011311311113(final Object p0, final int p1, final int p2, final Object p3, final boolean p4, final boolean p5, final boolean p6, final boolean p7);
+    
+    public static native Object n011313(final Object p0, final int p1);
+    
+    public static native void n0113130(final Object p0, final int p1, final Object p2);
+    
+    public static native boolean n0113131(final Object p0, final int p1, final Object p2);
+    
+    public static native boolean n011313111(final Object p0, final int p1, final Object p2, final int p3, final int p4);
+    
+    public static native void n01131330(final Object p0, final int p1, final Object p2, final Object p3);
+    
+    public static native long n01132(final Object p0);
+    
+    public static native void n011320(final Object p0, final long p1);
+    
+    public static native long n011322(final Object p0, final long p1);
+    
+    public static native int n0113231(final Object p0, final long p1, final Object p2);
+    
+    public static native void n01132320(final Object p0, final long p1, final Object p2, final long p3);
+    
+    public static native Object n0113233(final Object p0, final long p1, final Object p2);
+    
+    public static native Object n011323313(final Object p0, final long p1, final Object p2, final Object p3, final int p4);
+    
+    public static native Object n01132333(final Object p0, final long p1, final Object p2, final Object p3);
+    
+    public static native Object n01133(final Object p0);
+    
+    public static native void n011330(final Object p0, final Object p1);
+    
+    public static native int n011331(final Object p0, final Object p1);
+    
+    public static native void n0113310(final Object p0, final Object p1, final int p2);
+    
+    public static native void n01133110(final Object p0, final Object p1, final boolean p2, final int p3);
+    
+    public static native void n011331110(final Object p0, final Object p1, final int p2, final int p3, final boolean p4);
+    
+    public static native Object n0113311113(final Object p0, final Object p1, final boolean p2, final boolean p3, final boolean p4, final boolean p5);
+    
+    public static native Object n011331113(final Object p0, final Object p1, final int p2, final int p3, final int p4);
+    
+    public static native Object n011331123(final Object p0, final Object p1, final int p2, final int p3, final long p4);
+    
+    public static native Object n01133113(final Object p0, final Object p1, final int p2, final int p3);
+    
+    public static native void n0113311311110(final Object p0, final Object p1, final int p2, final int p3, final Object p4, final boolean p5, final boolean p6, final boolean p7, final boolean p8);
+    
+    public static native Object n011331133(final Object p0, final Object p1, final int p2, final int p3, final Object p4);
+    
+    public static native Object n0113313(final Object p0, final Object p1, final int p2);
+    
+    public static native void n01133130(final Object p0, final Object p1, final boolean p2, final Object p3);
+    
+    public static native Object n0113313113(final Object p0, final Object p1, final int p2, final Object p3, final int p4, final int p5);
+    
+    public static native void n011331330(final Object p0, final Object p1, final boolean p2, final Object p3, final Object p4);
+    
+    public static native void n0113320(final Object p0, final Object p1, final long p2);
+    
+    public static native Object n011333(final Object p0, final Object p1);
+    
+    public static native void n0113330(final Object p0, final Object p1, final Object p2);
+    
+    public static native boolean n0113331(final Object p0, final Object p1, final Object p2);
+    
+    public static native void n01133310(final Object p0, final Object p1, final Object p2, final boolean p3);
+    
+    public static native Object n01133323(final Object p0, final Object p1, final Object p2, final long p3);
+    
+    public static native Object n0113333(final Object p0, final Object p1, final Object p2);
+    
+    public static native void n01133330(final Object p0, final Object p1, final Object p2, final Object p3);
+    
+    public static native boolean n01133331(final Object p0, final Object p1, final Object p2, final Object p3);
+    
+    public static native Object n01133333(final Object p0, final Object p1, final Object p2, final Object p3);
+    
+    public static native Object n011333333(final Object p0, final Object p1, final Object p2, final Object p3, final Object p4);
+    
+    private static Application \u1d62\u02cb(final Context context) {
+        try {
+            Label_0045: {
+                if (StubApp.\u1d62\u02ce != null) {
+                    break Label_0045;
+                }
+                final ClassLoader classLoader = context.getClassLoader();
+                if (classLoader == null) {
+                    break Label_0045;
+                }
+                final Class<?> loadClass = classLoader.loadClass(StubApp.strEntryApplication);
+                if (loadClass == null) {
+                    break Label_0045;
+                }
+                final Object instance = loadClass.newInstance();
+                try {
+                    final Application \u1d62\u02ce = (Application)instance;
+                    try {
+                        StubApp.\u1d62\u02ce = \u1d62\u02ce;
+                        return StubApp.\u1d62\u02ce;
+                    }
+                    catch (Exception ex) {}
+                }
+                catch (Exception ex2) {}
+            }
+        }
+        catch (Exception ex3) {}
+    }
+    
+    private static String \u1d62\u02cb(final String s, final boolean b, final boolean b2) {
+        String s2 = StubApp.\u1d62\u02cf;
+        if (Build$VERSION.SDK_INT < 23) {
+            s2 += s.hashCode();
+        }
+        String s3;
+        if (b && !b2) {
+            s3 = s2 + "_64.so";
+        }
+        else {
+            s3 = s2 + ".so";
+        }
+        return s3;
+    }
+    
+    private static boolean \u1d62\u02cb(final Context context, final String s, final String s2, final String s3) {
+        boolean b = true;
+        final String string = s2 + "/" + s3;
+        final File file = new File(s2);
+        if (!file.exists()) {
+            file.mkdir();
+        }
+        while (true) {
+            while (true) {
+                Label_0283: {
+                    InputStream open2 = null;
+                    FileOutputStream fileOutputStream = null;
+                    Label_0270: {
+                        try {
+                            final File file2 = new File(string);
+                            Label_0189: {
+                                if (!file2.exists()) {
+                                    break Label_0189;
+                                }
+                                final Resources resources = context.getResources();
+                                try {
+                                    final InputStream open = resources.getAssets().open(s);
+                                    try {
+                                        final FileInputStream fileInputStream = new FileInputStream(file2);
+                                        final BufferedInputStream bufferedInputStream = new BufferedInputStream(open);
+                                        final BufferedInputStream bufferedInputStream2 = new BufferedInputStream(fileInputStream);
+                                        final BufferedInputStream bufferedInputStream3 = bufferedInputStream;
+                                        try {
+                                            if (\u1d62\u02cb(bufferedInputStream3, bufferedInputStream2)) {
+                                                final int n = b ? 1 : 0;
+                                                open.close();
+                                                fileInputStream.close();
+                                                bufferedInputStream.close();
+                                                bufferedInputStream2.close();
+                                                if (n == 0) {
+                                                    final Resources resources2 = context.getResources();
+                                                    try {
+                                                        open2 = resources2.getAssets().open(s);
+                                                        try {
+                                                            fileOutputStream = new FileOutputStream(string);
+                                                            final byte[] array = new byte[7168];
+                                                            while (true) {
+                                                                final int read = open2.read(array);
+                                                                if (read <= 0) {
+                                                                    break Label_0270;
+                                                                }
+                                                                fileOutputStream.write(array, 0, read);
+                                                            }
+                                                        }
+                                                        catch (Exception ex) {
+                                                            b = false;
+                                                        }
+                                                    }
+                                                    catch (Exception ex2) {}
+                                                }
+                                                return b;
+                                            }
+                                            break Label_0283;
+                                        }
+                                        catch (Exception ex3) {}
+                                    }
+                                    catch (Exception ex4) {}
+                                }
+                                catch (Exception ex5) {}
+                            }
+                        }
+                        catch (Exception ex6) {}
+                    }
+                    fileOutputStream.close();
+                    open2.close();
+                    return b;
+                }
+                final int n = 0;
+                continue;
+            }
+        }
+    }
+    
+    private static boolean \u1d62\u02cb(final BufferedInputStream bufferedInputStream, final BufferedInputStream bufferedInputStream2) {
+        boolean b = false;
+        try {
+            final int available = bufferedInputStream.available();
+            try {
+                final int available2 = bufferedInputStream2.available();
+                if (available != available2) {
+                    return b;
+                }
+                final byte[] array = new byte[available];
+                try {
+                    final byte[] array2 = new byte[available2];
+                    bufferedInputStream.read(array);
+                    try {
+                        bufferedInputStream2.read(array2);
+                        for (int i = 0; i < available; ++i) {
+                            if (array[i] != array2[i]) {
+                                return b;
+                            }
+                        }
+                        b = true;
+                        return b;
+                    }
+                    catch (IOException ex) {
+                        return b;
+                    }
+                    catch (FileNotFoundException ex2) {
+                        return b;
+                    }
+                }
+                catch (IOException ex3) {}
+                catch (FileNotFoundException ex4) {}
+            }
+            catch (IOException ex5) {}
+            catch (FileNotFoundException ex6) {}
+        }
+        catch (IOException ex7) {}
+        catch (FileNotFoundException ex8) {}
+    }
+    
+    protected final void attachBaseContext(final Context p0) {
+        throw new IllegalStateException("An error occurred while decompiling this method.");
+    }
+    
+    public native void n1100();
+    
+    public native int n1101();
+    
+    public native void n11010(final int p0);
+    
+    public native void n1101110(final boolean p0, final int p1, final int p2);
+    
+    public native void n11011130(final boolean p0, final int p1, final int p2, final Object p3);
+    
+    public native void n1101130(final int p0, final int p1, final Object p2);
+    
+    public native void n11011310(final boolean p0, final int p1, final Object p2, final int p3);
+    
+    public native void n110120(final int p0, final long p1);
+    
+    public native Object n11013(final int p0);
+    
+    public native void n110130(final int p0, final Object p1);
+    
+    public native boolean n1101321(final int p0, final Object p1, final long p2);
+    
+    public native void n1101330(final int p0, final Object p1, final Object p2);
+    
+    public native long n1102();
+    
+    public native void n11020(final long p0);
+    
+    public native Object n1103();
+    
+    public native void n11030(final Object p0);
+    
+    public native boolean n11031(final Object p0);
+    
+    public native void n110310(final Object p0, final boolean p1);
+    
+    public native boolean n110311(final Object p0, final int p1);
+    
+    public native Object n110323(final Object p0, final long p1);
+    
+    public native Object n11033(final Object p0);
+    
+    public native boolean n110331(final Object p0, final Object p1);
+    
+    public native void n1110();
+    
+    public native boolean n1111();
+    
+    public native void n11110(final int p0);
+    
+    public native int n11111(final int p0);
+    
+    public native void n111110(final int p0, final boolean p1);
+    
+    public native int n111111(final int p0, final int p1);
+    
+    public native void n1111110(final int p0, final int p1, final int p2);
+    
+    public native void n11111110(final int p0, final int p1, final int p2, final boolean p3);
+    
+    public native void n111111110(final boolean p0, final int p1, final int p2, final int p3, final int p4);
+    
+    public native void n11111111111111130(final boolean p0, final boolean p1, final int p2, final int p3, final boolean p4, final boolean p5, final boolean p6, final int p7, final int p8, final boolean p9, final boolean p10, final boolean p11, final Object p12);
+    
+    public native Object n111111113(final int p0, final int p1, final int p2, final boolean p3, final boolean p4);
+    
+    public native Object n11111113(final int p0, final int p1, final int p2, final boolean p3);
+    
+    public native Object n1111113(final boolean p0, final boolean p1, final boolean p2);
+    
+    public native void n11111130(final boolean p0, final int p1, final int p2, final Object p3);
+    
+    public native Object n111113(final int p0, final int p1);
+    
+    public native void n1111130(final int p0, final int p1, final Object p2);
+    
+    public native void n11111310(final boolean p0, final int p1, final Object p2, final int p3);
+    
+    public native boolean n111113131(final boolean p0, final boolean p1, final Object p2, final boolean p3, final Object p4);
+    
+    public native void n11111320(final int p0, final boolean p1, final Object p2, final long p3);
+    
+    public native boolean n11111331(final boolean p0, final boolean p1, final Object p2, final Object p3);
+    
+    public native Object n11111333(final int p0, final int p1, final Object p2, final Object p3);
+    
+    public native long n11112(final int p0);
+    
+    public native void n111120(final int p0, final long p1);
+    
+    public native void n11112110(final int p0, final long p1, final boolean p2, final boolean p3);
+    
+    public native long n111122(final byte p0, final long p1);
+    
+    public native long n1111222(final byte p0, final long p1, final long p2);
+    
+    public native Object n111123(final int p0, final long p1);
+    
+    public native void n1111230(final int p0, final long p1, final Object p2);
+    
+    public native void n11112330(final int p0, final long p1, final Object p2, final Object p3);
+    
+    public native Object n11113(final int p0);
+    
+    public native void n111130(final int p0, final Object p1);
+    
+    public native boolean n111131(final int p0, final Object p1);
+    
+    public native void n1111310(final int p0, final Object p1, final boolean p2);
+    
+    public native boolean n1111311(final int p0, final Object p1, final int p2);
+    
+    public native void n11113110(final int p0, final Object p1, final int p2, final boolean p3);
+    
+    public native boolean n11113111(final int p0, final Object p1, final int p2, final boolean p3);
+    
+    public native void n111131130(final int p0, final Object p1, final boolean p2, final boolean p3, final Object p4);
+    
+    public native Object n1111313(final int p0, final Object p1, final boolean p2);
+    
+    public native void n1111320(final int p0, final Object p1, final long p2);
+    
+    public native Object n111133(final int p0, final Object p1);
+    
+    public native void n1111330(final int p0, final Object p1, final Object p2);
+    
+    public native Object n1111333(final int p0, final Object p1, final Object p2);
+    
+    public native void n11113330(final int p0, final Object p1, final Object p2, final Object p3);
+    
+    public native void n1111333120(final int p0, final Object p1, final Object p2, final Object p3, final int p4, final long p5);
+    
+    public native long n1112();
+    
+    public native void n11120(final long p0);
+    
+    public native int n11121(final long p0);
+    
+    public native int n111211(final long p0, final int p1);
+    
+    public native long n11122(final long p0);
+    
+    public native Object n11123(final long p0);
+    
+    public native void n111230(final long p0, final Object p1);
+    
+    public native boolean n111231(final long p0, final Object p1);
+    
+    public native boolean n11123111(final long p0, final Object p1, final int p2, final int p3);
+    
+    public native long n111232(final long p0, final Object p1);
+    
+    public native void n1112320(final long p0, final Object p1, final long p2);
+    
+    public native Object n111233(final long p0, final Object p1);
+    
+    public native void n1112330(final long p0, final Object p1, final Object p2);
+    
+    public native Object n1113();
+    
+    public native void n11130(final Object p0);
+    
+    public native boolean n11131(final Object p0);
+    
+    public native void n111310(final Object p0, final int p1);
+    
+    public native boolean n111311(final Object p0, final int p1);
+    
+    public native void n1113110(final Object p0, final int p1, final int p2);
+    
+    public native int n1113111(final Object p0, final int p1, final int p2);
+    
+    public native void n11131110(final Object p0, final int p1, final byte p2, final int p3);
+    
+    public native void n111311110(final Object p0, final int p1, final int p2, final boolean p3, final boolean p4);
+    
+    public native Object n1113113(final Object p0, final boolean p1, final int p2);
+    
+    public native Object n11131133(final Object p0, final int p1, final int p2, final Object p3);
+    
+    public native long n111312(final Object p0, final boolean p1);
+    
+    public native Object n111313(final Object p0, final boolean p1);
+    
+    public native void n1113130(final Object p0, final boolean p1, final Object p2);
+    
+    public native boolean n1113131(final Object p0, final boolean p1, final Object p2);
+    
+    public native void n11131310(final Object p0, final int p1, final Object p2, final int p3);
+    
+    public native boolean n111313111(final Object p0, final int p1, final Object p2, final int p3, final int p4);
+    
+    public native Object n1113133(final Object p0, final boolean p1, final Object p2);
+    
+    public native Object n11131333(final Object p0, final boolean p1, final Object p2, final Object p3);
+    
+    public native void n111313330(final Object p0, final int p1, final Object p2, final Object p3, final Object p4);
+    
+    public native void n1113133330(final Object p0, final int p1, final Object p2, final Object p3, final Object p4, final Object p5);
+    
+    public native void n1113133333333330(final Object p0, final int p1, final Object p2, final Object p3, final Object p4, final Object p5, final Object p6, final Object p7, final Object p8, final Object p9, final Object p10, final Object p11);
+    
+    public native long n11132(final Object p0);
+    
+    public native void n111320(final Object p0, final long p1);
+    
+    public native int n111321(final Object p0, final long p1);
+    
+    public native void n1113210(final Object p0, final long p1, final int p2);
+    
+    public native Object n1113213(final Object p0, final long p1, final int p2);
+    
+    public native void n111321320(final Object p0, final long p1, final int p2, final Object p3, final long p4);
+    
+    public native long n111322(final Object p0, final long p1);
+    
+    public native void n1113220(final Object p0, final long p1, final long p2);
+    
+    public native void n11132210(final Object p0, final long p1, final long p2, final int p3);
+    
+    public native Object n1113223(final Object p0, final long p1, final long p2);
+    
+    public native Object n11132233(final Object p0, final long p1, final long p2, final Object p3);
+    
+    public native void n1113223310(final Object p0, final long p1, final long p2, final Object p3, final Object p4, final int p5);
+    
+    public native void n11132233110(final Object p0, final long p1, final long p2, final Object p3, final Object p4, final int p5, final boolean p6);
+    
+    public native void n111322332110(final Object p0, final long p1, final long p2, final Object p3, final Object p4, final long p5, final int p6, final boolean p7);
+    
+    public native Object n111323(final Object p0, final long p1);
+    
+    public native void n1113230(final Object p0, final long p1, final Object p2);
+    
+    public native void n11132320(final Object p0, final long p1, final Object p2, final long p3);
+    
+    public native Object n1113233(final Object p0, final long p1, final Object p2);
+    
+    public native void n11132330(final Object p0, final long p1, final Object p2, final Object p3);
+    
+    public native void n111323310(final Object p0, final long p1, final Object p2, final Object p3, final int p4);
+    
+    public native void n1113233110(final Object p0, final long p1, final Object p2, final Object p3, final int p4, final boolean p5);
+    
+    public native void n11132331210(final Object p0, final long p1, final Object p2, final Object p3, final int p4, final long p5, final boolean p6);
+    
+    public native Object n11132333(final Object p0, final long p1, final Object p2, final Object p3);
+    
+    public native void n111323330(final Object p0, final long p1, final Object p2, final Object p3, final Object p4);
+    
+    public native Object n11133(final Object p0);
+    
+    public native void n111330(final Object p0, final Object p1);
+    
+    public native int n111331(final Object p0, final Object p1);
+    
+    public native void n1113310(final Object p0, final Object p1, final boolean p2);
+    
+    public native void n11133110(final Object p0, final Object p1, final boolean p2, final int p3);
+    
+    public native void n1113311230(final Object p0, final Object p1, final int p2, final int p3, final long p4, final Object p5);
+    
+    public native void n11133130(final Object p0, final Object p1, final boolean p2, final Object p3);
+    
+    public native void n111331330(final Object p0, final Object p1, final int p2, final Object p3, final Object p4);
+    
+    public native void n1113320(final Object p0, final Object p1, final long p2);
+    
+    public native boolean n1113321(final Object p0, final Object p1, final long p2);
+    
+    public native boolean n11133211(final Object p0, final Object p1, final long p2, final int p3);
+    
+    public native Object n1113323(final Object p0, final Object p1, final long p2);
+    
+    public native void n111332320(final Object p0, final Object p1, final long p2, final Object p3, final long p4);
+    
+    public native void n111332330(final Object p0, final Object p1, final long p2, final Object p3, final Object p4);
+    
+    public native void n1113323311110(final Object p0, final Object p1, final long p2, final Object p3, final Object p4, final boolean p5, final boolean p6, final boolean p7, final boolean p8);
+    
+    public native Object n111333(final Object p0, final Object p1);
+    
+    public native void n1113330(final Object p0, final Object p1, final Object p2);
+    
+    public native int n1113331(final Object p0, final Object p1, final Object p2);
+    
+    public native void n11133310(final Object p0, final Object p1, final Object p2, final boolean p3);
+    
+    public native void n111333110(final Object p0, final Object p1, final Object p2, final int p3, final boolean p4);
+    
+    public native void n11133311130(final Object p0, final Object p1, final Object p2, final boolean p3, final int p4, final int p5, final Object p6);
+    
+    public native Object n111333113(final Object p0, final Object p1, final Object p2, final int p3, final boolean p4);
+    
+    public native void n111333120(final Object p0, final Object p1, final Object p2, final int p3, final long p4);
+    
+    public native void n111333130(final Object p0, final Object p1, final Object p2, final int p3, final Object p4);
+    
+    public native void n1113331310(final Object p0, final Object p1, final Object p2, final int p3, final Object p4, final boolean p5);
+    
+    public native void n11133313110(final Object p0, final Object p1, final Object p2, final int p3, final Object p4, final int p5, final boolean p6);
+    
+    public native Object n1113333(final Object p0, final Object p1, final Object p2);
+    
+    public native void n11133330(final Object p0, final Object p1, final Object p2, final Object p3);
+    
+    public native int n11133331(final Object p0, final Object p1, final Object p2, final Object p3);
+    
+    public native void n1113333130(final Object p0, final Object p1, final Object p2, final Object p3, final int p4, final Object p5);
+    
+    public native Object n11133333(final Object p0, final Object p1, final Object p2, final Object p3);
+    
+    public native void n111333330(final Object p0, final Object p1, final Object p2, final Object p3, final Object p4);
+    
+    public native Object n111333333(final Object p0, final Object p1, final Object p2, final Object p3, final Object p4);
+    
+    public final void onCreate() {
+        super.onCreate();
+        while (true) {
+            if (!Configuration.ENABLE_CRASH_REPORT) {
+                break Label_0067;
+            }
+            final String s = "com.qihoo.bugreport.CrashReport";
+            try {
+                Class.forName(s).getDeclaredMethod("prepareInit", (Class<?>[])new Class[0]).invoke(null, new Object[0]);
+                final Context baseContext = StubApp.\u1d62\u02cb.getBaseContext();
+                try {
+                    interface7(StubApp.\u1d62\u02ce, baseContext);
+                    if (StubApp.\u1d62\u02ce != null) {
+                        StubApp.\u1d62\u02ce.onCreate();
+                    }
+                    Label_0275: {
+                        if (!Configuration.ENABLE_CRASH_REPORT) {
+                            break Label_0275;
+                        }
+                        final String s2 = "com.qihoo.bugreport.CrashReport";
+                        try {
+                            Class.forName(s2).getDeclaredMethod("init", Context.class).invoke(null, this.getApplicationContext());
+                            final Application \u1d62\u02ce = StubApp.\u1d62\u02ce;
+                            final String s3 = "com.qihoo.jiagutracker.TrackerMain";
+                            try {
+                                Class.forName(s3).getDeclaredMethod("init", Application.class).invoke(null, \u1d62\u02ce);
+                                final String s4 = "com.qihoo.util.bxb.init.DJadInit";
+                                try {
+                                    Class.forName(s4).getDeclaredMethod("init", Context.class).invoke(null, this.getApplicationContext());
+                                }
+                                finally {}
+                            }
+                            finally {}
+                        }
+                        finally {}
+                    }
+                }
+                catch (Exception ex) {}
+            }
+            finally {
+                continue;
+            }
+            break;
+        }
+    }
+}
+
+package com.qihoo360.replugin;
+
+import android.os.Parcel;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Binder;
+
+public class Entry$Stub extends Binder implements IInterface
+{
+    private static final String DESCRIPTOR = "com.qihoo360.loader2.IPlugin";
+    private IBinder mRemote;
+    
+    public Entry$Stub() {
+        this.mRemote = null;
+        this.attachInterface((IInterface)this, "com.qihoo360.loader2.IPlugin");
+    }
+    
+    public IBinder asBinder() {
+        return this.mRemote;
+    }
+    
+    public boolean onTransact(final int n, final Parcel parcel, final Parcel parcel2, final int n2) {
+        return this.mRemote != null && this.mRemote.transact(n, parcel, parcel2, n2);
+    }
+    
+    public void setRemote(final IBinder mRemote) {
+        this.mRemote = mRemote;
+    }
+}
+
+package com.qihoo360.replugin;
+
+import android.os.IBinder;
+import android.content.Context;
+
+public class Entry
+{
+    static ClassLoader cl;
+    static Context context;
+    static Entry$Stub fakeBinder;
+    static IBinder manager;
+    static IBinder realEntryBinder;
+    
+    static {
+        Entry.context = null;
+        Entry.cl = null;
+        Entry.manager = null;
+        Entry.realEntryBinder = null;
+        Entry.fakeBinder = null;
+    }
+    
+    public static final IBinder create(final Context context, final ClassLoader cl, final IBinder manager) {
+        Entry.context = context;
+        Entry.cl = cl;
+        Entry.manager = manager;
+        return (IBinder)(Entry.fakeBinder = new Entry$Stub());
+    }
+    
+    public static void init() {
+        final String s = "com.qihoo360.replugin.Entry_Jiagu";
+        try {
+            if ((Entry.realEntryBinder = (IBinder)Class.forName(s).getDeclaredMethod("create", Context.class, ClassLoader.class, IBinder.class).invoke(null, Entry.context, Entry.cl, Entry.manager)) != null && Entry.fakeBinder != null) {
+                Entry.fakeBinder.setRemote(Entry.realEntryBinder);
+            }
+        }
+        finally {}
+    }
+}

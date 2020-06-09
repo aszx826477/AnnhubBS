@@ -25,7 +25,7 @@
 
     <!-- Custom styles for this template -->
     <link href="dist/css/creative.min.css" rel="stylesheet">
-
+    
   </head>
 
   <body id="page-top">
@@ -276,7 +276,7 @@
        
       </div>
     </section>
-    <div class="text-center" style="background-color: #2E3033; margin 0; padding: 20px">
+    <div class="text-center" style="background-color: #2E3033; margin: 0; padding: 20px">
         <a style="color: #ffffff; font-size: 12px">版权所有 卓护开发团队 All Right Reserved.Annuhub 2018-2019</a>
     </div>
 

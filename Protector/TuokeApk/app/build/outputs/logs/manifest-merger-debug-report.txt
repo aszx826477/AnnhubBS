@@ -1,0 +1,45 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml:2:1-15:12
+INJECTED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml:2:1-15:12
+INJECTED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml:2:1-15:12
+INJECTED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml:2:1-15:12
+INJECTED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml:2:1-15:12
+INJECTED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml:2:1-15:12
+INJECTED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml:2:1-15:12
+	package
+		ADDED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml:3:5-27
+		INJECTED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml
+		INJECTED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml:5:5-30
+		INJECTED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml
+		INJECTED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml:4:5-28
+		INJECTED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml
+		INJECTED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml
+uses-sdk
+ADDED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml:7:5-17
+INJECTED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml:7:5-17
+INJECTED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml:7:5-17
+INJECTED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml:7:5-17
+INJECTED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml:7:5-17
+	android:targetSdkVersion
+		INJECTED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml
+		ADDED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml:7:5-17
+		INJECTED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml
+		ADDED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml:7:5-17
+		INJECTED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml
+application
+ADDED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml:9:5-13:19
+	android:label
+		ADDED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml:12:9-41
+	android:icon
+		ADDED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml:11:9-45
+	android:name
+		ADDED from /home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/AndroidManifest.xml:10:9-41

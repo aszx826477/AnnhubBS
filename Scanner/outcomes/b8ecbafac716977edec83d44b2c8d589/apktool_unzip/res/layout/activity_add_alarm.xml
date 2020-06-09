@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/layout_title_alarm" android:background="@color/colorPrimary" android:layout_width="fill_parent" android:layout_height="@dimen/app_title_height">
+        <TextView android:textSize="18.0sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/alarm" android:layout_centerInParent="true" />
+        <TextView android:textColor="@color/white" android:gravity="center" android:id="@id/tv_cancel" android:layout_width="@dimen/app_title_height" android:layout_height="fill_parent" android:foreground="?actionBarItemBackground" android:text="@string/cancel" />
+        <TextView android:textColor="@color/white" android:gravity="center" android:id="@id/tv_commit" android:layout_width="@dimen/app_title_height" android:layout_height="fill_parent" android:foreground="?actionBarItemBackground" android:text="@string/save" android:layout_alignParentRight="true" />
+    </RelativeLayout>
+    <ScrollView android:background="@color/colorPrimary" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/layout_title_alarm">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <RelativeLayout android:id="@id/layout_time_picker" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="50.0dip">
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <com.ycuwq.datepicker.WheelPicker android:id="@id/v_picker_hour" android:layout_width="0.0dip" android:layout_height="180.0dip" android:layout_weight="1.0" app:currentItemPosition="0" app:halfVisibleItemCount="1" app:itemMaximumWidthText="@string/date_picker_item_max_text_width" app:itemTextColor="@color/normalGrayColor" app:itemTextSize="25.0sp" app:selectedTextColor="@color/white" app:selectedTextSize="40.0sp" app:wheelCurtain="false" app:wheelCurtainBorder="false" app:wheelCurtainColor="#11f1f1f1" app:wheelCyclic="true" app:zoomInCenterItem="true" />
+                    <TextView android:textSize="40.0sp" android:textColor="@color/white" android:layout_gravity="center_vertical" android:paddingLeft="7.0dip" android:paddingRight="7.0dip" android:paddingBottom="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/colon" />
+                    <com.ycuwq.datepicker.WheelPicker android:id="@id/v_picker_minute" android:layout_width="0.0dip" android:layout_height="180.0dip" android:layout_weight="1.0" app:currentItemPosition="0" app:halfVisibleItemCount="1" app:itemMaximumWidthText="@string/date_picker_item_max_text_width" app:itemTextColor="@color/normalGrayColor" app:itemTextSize="25.0sp" app:selectedTextColor="@color/white" app:selectedTextSize="40.0sp" app:textGradual="true" app:wheelCurtain="false" app:wheelCurtainBorder="false" app:wheelCyclic="true" app:zoomInCenterItem="true" />
+                </LinearLayout>
+            </RelativeLayout>
+            <View android:background="#11f1f1f1" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginTop="50.0dip" />
+            <RelativeLayout android:id="@id/layout_repeat_rule" android:padding="15.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:foreground="?android:selectableItemBackground">
+                <TextView android:textSize="13.0sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/repeat" android:layout_centerVertical="true" />
+                <ImageView android:id="@id/img_next1" android:layout_width="15.0dip" android:layout_height="20.0dip" android:src="@mipmap/img_next" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                <TextView android:textSize="13.0sp" android:textColor="@color/white" android:id="@id/tv_repeat_rule" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="3.0dip" android:text="@string/alarm_repeat_rule_none" android:layout_toLeftOf="@id/img_next1" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <View android:background="#11f1f1f1" android:layout_width="fill_parent" android:layout_height="1.0px" />
+            <RelativeLayout android:id="@id/layout_snap" android:paddingLeft="15.0dip" android:paddingTop="3.0dip" android:paddingBottom="3.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:foreground="?android:selectableItemBackground">
+                <TextView android:textSize="13.0sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/sleep_more_time" android:layout_centerVertical="true" />
+                <com.kyleduo.switchbutton.SwitchButton android:id="@id/v_switch" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" app:kswBackColor="@color/white" app:kswThumbDrawable="@drawable/selector_switch_btn_2" app:kswThumbMargin="-5.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" style="@style/SwitchButtonMD" />
+                <TextView android:textSize="13.0sp" android:textColor="@color/white" android:id="@id/tv_snap_time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="3.0dip" android:layout_toLeftOf="@id/v_switch" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <View android:background="#11f1f1f1" android:layout_width="fill_parent" android:layout_height="1.0px" />
+            <RelativeLayout android:id="@id/layout_ring" android:padding="15.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:foreground="?android:selectableItemBackground">
+                <TextView android:textSize="13.0sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ring" android:layout_centerVertical="true" />
+                <ImageView android:id="@id/img_next2" android:layout_width="15.0dip" android:layout_height="20.0dip" android:src="@mipmap/img_next" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                <TextView android:textSize="13.0sp" android:textColor="@color/white" android:id="@id/tv_ring_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="3.0dip" android:layout_toLeftOf="@id/img_next2" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <View android:background="#11f1f1f1" android:layout_width="fill_parent" android:layout_height="1.0px" />
+            <RelativeLayout android:id="@id/layout_tips" android:padding="15.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:foreground="?android:selectableItemBackground">
+                <TextView android:textSize="13.0sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tips" android:layout_centerVertical="true" />
+                <ImageView android:id="@id/img_next3" android:layout_width="15.0dip" android:layout_height="20.0dip" android:src="@mipmap/img_next" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                <TextView android:textSize="13.0sp" android:textColor="@color/white" android:id="@id/tv_tip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="3.0dip" android:text="@string/none" android:layout_toLeftOf="@id/img_next3" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <View android:background="#11f1f1f1" android:layout_width="fill_parent" android:layout_height="1.0px" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

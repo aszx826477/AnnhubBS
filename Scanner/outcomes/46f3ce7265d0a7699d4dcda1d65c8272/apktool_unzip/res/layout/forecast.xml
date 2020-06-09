@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="#88000000" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="15.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="20.0sp" android:textColor="#ffffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_marginTop="15.0dip" android:text="预报" />
+    <LinearLayout android:orientation="vertical" android:id="@id/forecast_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</LinearLayout>

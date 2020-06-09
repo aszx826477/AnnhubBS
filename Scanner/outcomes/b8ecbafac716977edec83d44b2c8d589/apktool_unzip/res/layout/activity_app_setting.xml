@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/colorPrimary" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/layout_header" layout="@layout/layout_header_title" />
+    <View android:background="@color/lineColor" android:layout_width="fill_parent" android:layout_height="1.0px" />
+    <RelativeLayout android:id="@id/layout_setting_ring" android:paddingLeft="15.0dip" android:paddingRight="5.0dip" android:layout_width="fill_parent" android:layout_height="@dimen/app_setting_item_height" android:foreground="?android:selectableItemBackground">
+        <TextView android:textSize="@dimen/normal_text_size" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/vibrate_only_model" android:layout_centerVertical="true" />
+        <com.kyleduo.switchbutton.SwitchButton android:id="@id/v_switch" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true" app:kswBackColor="@color/white" app:kswThumbDrawable="@drawable/selector_switch_btn_2" app:kswThumbMargin="-5.0dip" app:kswTintColor="#ff8b8386" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" style="@style/SwitchButtonMD" />
+    </RelativeLayout>
+    <View android:background="@color/lineColor" android:layout_width="fill_parent" android:layout_height="1.0px" />
+    <RelativeLayout android:id="@id/layout_setting_show" android:paddingLeft="15.0dip" android:paddingRight="15.0dip" android:layout_width="fill_parent" android:layout_height="@dimen/app_setting_item_height" android:foreground="?android:selectableItemBackground">
+        <TextView android:textSize="@dimen/normal_text_size" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="给个好评" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/img_next" android:layout_width="15.0dip" android:layout_height="15.0dip" android:src="@mipmap/img_next" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <View android:background="@color/lineColor" android:layout_width="fill_parent" android:layout_height="1.0px" />
+    <RelativeLayout android:id="@id/layout_version_update" android:paddingLeft="15.0dip" android:paddingRight="15.0dip" android:layout_width="fill_parent" android:layout_height="@dimen/app_setting_item_height" android:foreground="?android:selectableItemBackground">
+        <TextView android:textSize="@dimen/normal_text_size" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/version_update" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <View android:background="@color/lineColor" android:layout_width="fill_parent" android:layout_height="1.0px" />
+    <RelativeLayout android:id="@id/layout_suggestion" android:paddingLeft="15.0dip" android:paddingRight="15.0dip" android:layout_width="fill_parent" android:layout_height="@dimen/app_setting_item_height" android:foreground="?android:selectableItemBackground">
+        <TextView android:textSize="@dimen/normal_text_size" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="意见反馈" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <View android:background="@color/lineColor" android:layout_width="fill_parent" android:layout_height="1.0px" />
+</LinearLayout>

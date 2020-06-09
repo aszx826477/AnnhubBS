@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ycuwq.datepicker.date.DatePicker android:id="@id/dayPicker_dialog" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:textColor="@color/selectedTextColor" android:id="@id/btn_cancel" android:background="#fff7f7f7" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/ycuwq_datepicker_cancel" android:layout_weight="1.0" />
+        <ImageView android:background="@color/divider" android:layout_width="1.0px" android:layout_height="fill_parent" />
+        <Button android:textColor="@color/selectedTextColor" android:id="@id/btn_decide" android:background="#fff7f7f7" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/ycuew_datepicker_decide" android:layout_weight="1.0" />
+    </LinearLayout>
+</LinearLayout>

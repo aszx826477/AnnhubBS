@@ -1,7 +1,6 @@
 ## 卓护平台简介
-<div align=center>
-    <img width="20%" src="https://wiki-1252789527.cos.ap-shanghai.myqcloud.com/logo.png"></img>
-</div>
+
+![卓护平台的logo](https://wiki-1252789527.picsh.myqcloud.com/logo.png?imageMogr2/thumbnail/120x)
 
 ### 何为卓护加固平台？
 
@@ -11,7 +10,7 @@
 
 您可以注册一个属于自己的账号，上传您的APK，系统会自动进行扫描，生成安全评估报告，定位风险代码，监控敏感数据的异常行为，并给予相应的修复建议；同时，还会加固您的应用，保护核心代码算法，提高破解、盗版、二次打包的难度，缓解代码注入、动态调试、内存注入攻击等恶意行为。
 
-![平台功能介绍](https://wiki-1252789527.cos.ap-shanghai.myqcloud.com/%E5%B9%B3%E5%8F%B0%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D.png)
+![平台功能介绍](https://wiki-1252789527.picsh.myqcloud.com/%E5%B9%B3%E5%8F%B0%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D.png)
 
 ### 平台有哪些特色功能和优势？
 

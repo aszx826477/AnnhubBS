@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:background="@drawable/shape_whiteline_whiteinfo" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="20.0dip">
+        <LinearLayout android:orientation="horizontal" android:id="@id/layout_alarm_only" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dip" android:layout_centerHorizontal="true">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/img_alarm_only" android:visibility="gone" android:layout_width="@dimen/normal_text_size" android:layout_height="@dimen/normal_text_size" android:src="@mipmap/img_item_selected" />
+            <TextView android:textSize="@dimen/normal_text_size" android:textColor="@color/titleColor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="@string/setting_alarm_only" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@id/layout_alarm_and_date" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dip" android:layout_marginBottom="25.0dip" android:layout_below="@id/layout_alarm_only" android:layout_centerHorizontal="true">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/img_alarm_and_date" android:visibility="gone" android:layout_width="@dimen/normal_text_size" android:layout_height="@dimen/normal_text_size" android:src="@mipmap/img_item_selected" />
+            <TextView android:textSize="@dimen/normal_text_size" android:textColor="@color/titleColor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="@string/setting_alarm_and_date" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/layout_alarm_and_date">
+            <TextView android:textSize="15.0sp" android:textColor="@color/titleColor" android:gravity="center" android:id="@id/tv_cancel" android:background="@drawable/shape_dialog_setting_cancel_btn" android:padding="15.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:foreground="?android:selectableItemBackground" android:text="@string/cancel" android:layout_weight="1.0" />
+            <TextView android:textSize="15.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/tv_commit" android:background="#ffff939d" android:padding="15.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:foreground="?android:selectableItemBackground" android:text="@string/commit" android:layout_weight="1.0" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

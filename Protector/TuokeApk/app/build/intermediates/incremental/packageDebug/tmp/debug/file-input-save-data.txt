@@ -1,0 +1,23 @@
+#Internal package file, do not edit.
+#Thu Apr 25 21:35:12 CST 2019
+2.base=/home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/build/intermediates/transforms/stripDebugSymbol/debug/0
+0.path=lib/arm64-v8a/libhackcodejiagu.so
+2.baseType=DIRECTORY
+3.base=/home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/build/intermediates/transforms/dexMerger/debug/0
+2.set=NATIVE_RESOURCE
+1.path=lib/x86_64/libhackcodejiagu.so
+4.base=/home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/build/intermediates/transforms/stripDebugSymbol/debug/0
+count=5
+2.path=lib/armeabi-v7a/libhackcodejiagu.so
+4.set=NATIVE_RESOURCE
+3.path=classes.dex
+3.baseType=DIRECTORY
+1.set=NATIVE_RESOURCE
+4.path=lib/x86/libhackcodejiagu.so
+1.baseType=DIRECTORY
+0.base=/home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/build/intermediates/transforms/stripDebugSymbol/debug/0
+0.baseType=DIRECTORY
+3.set=DEX
+1.base=/home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/build/intermediates/transforms/stripDebugSymbol/debug/0
+4.baseType=DIRECTORY
+0.set=NATIVE_RESOURCE

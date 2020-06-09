@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/llRoot" android:background="@drawable/shape_bg_white" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dip" android:layout_marginRight="16.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="20.0sp" android:gravity="center" android:id="@id/tvTitle" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="25.0dip" android:text="" />
+    <TextView android:textSize="12.0sp" android:gravity="center" android:id="@id/tvDesc" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginTop="24.0dip" android:layout_marginRight="10.0dip" android:text="" />
+    <me.weyye.hipermission.WrapHeightGridView android:id="@id/gvPermission" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="24.0dip" android:layout_marginTop="24.0dip" android:layout_marginRight="24.0dip" android:numColumns="1" />
+    <Button android:textSize="16.0sp" android:textColor="@android:color/white" android:id="@id/goto_settings" android:background="@drawable/shape_btn_next" android:layout_width="fill_parent" android:layout_height="44.0dip" android:layout_marginLeft="16.0dip" android:layout_marginTop="12.0dip" android:layout_marginRight="16.0dip" android:layout_marginBottom="12.0dip" android:text="@string/permission_btn_next" />
+</LinearLayout>

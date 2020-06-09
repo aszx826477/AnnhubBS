@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/build/intermediates/res/merged/release/menu_main.xml.flat",
+        "source": "/home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/res/menu/main.xml"
+    },
+    {
+        "merged": "/home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/build/intermediates/res/merged/release/layout_activity_main.xml.flat",
+        "source": "/home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/build/intermediates/res/merged/release/drawable-mdpi_ic_launcher.png.flat",
+        "source": "/home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/res/drawable-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/build/intermediates/res/merged/release/drawable-ldpi_ic_launcher.png.flat",
+        "source": "/home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/res/drawable-ldpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/build/intermediates/res/merged/release/drawable-hdpi_ic_launcher.png.flat",
+        "source": "/home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/res/drawable-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/build/intermediates/res/merged/release/drawable-xhdpi_ic_launcher.png.flat",
+        "source": "/home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/res/drawable-xhdpi/ic_launcher.png"
+    }
+]

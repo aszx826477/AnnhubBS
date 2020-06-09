@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/colorPrimary" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/layout_header_stopwatch" layout="@layout/layout_header_title_with_back_btn" />
+    <TextView android:textSize="56.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/tv_time" android:background="@color/colorPrimary" android:layout_width="fill_parent" android:layout_height="@dimen/date_picker_height" android:layout_marginTop="@dimen/date_picker_margin_top" android:text="@string/stopwatch_start_time" android:layout_below="@id/layout_header_stopwatch" />
+    <TextView android:enabled="false" android:textColor="@color/selector_end_timing_button_text" android:gravity="center" android:id="@id/tv_cancel" android:background="@drawable/selector_oval_button_for_end_timing" android:layout_width="80.0dip" android:layout_height="80.0dip" android:layout_marginLeft="70.0dip" android:layout_marginTop="70.0dip" android:text="@string/counting" android:layout_below="@id/tv_time" />
+    <TextView android:textColor="@color/colorAccent" android:gravity="center" android:id="@id/tv_start" android:background="@drawable/selector_oval_button_for_start_timing" android:layout_width="80.0dip" android:layout_height="80.0dip" android:layout_marginTop="70.0dip" android:layout_marginRight="70.0dip" android:text="@string/start" android:layout_below="@id/tv_time" android:layout_alignParentRight="true" />
+    <android.support.v7.widget.RecyclerView android:id="@id/list_main" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="20.0dip" android:layout_below="@id/tv_start" />
+</RelativeLayout>

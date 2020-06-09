@@ -1,0 +1,65 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/build/intermediates/res/merged/release/values-w820dp-v13_values-w820dp-v13.arsc.flat",
+            "map": [
+                {
+                    "source": "/home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/res/values-w820dp/dimens.xml",
+                    "from": {
+                        "startLines": "7",
+                        "startColumns": "4",
+                        "startOffsets": "305",
+                        "endColumns": "57",
+                        "endOffsets": "358"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "57",
+                        "endOffsets": "108"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/build/intermediates/res/merged/release/values_values.arsc.flat",
+            "map": [
+                {
+                    "source": "/home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/res/values/dimens.xml",
+                    "from": {
+                        "startLines": "3,4",
+                        "startColumns": "4,4",
+                        "startOffsets": "89,147",
+                        "endColumns": "57,55",
+                        "endOffsets": "142,198"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,113",
+                        "endColumns": "57,55",
+                        "endOffsets": "108,164"
+                    }
+                },
+                {
+                    "source": "/home/yelbee/Documents/apk-auto-enforce/TuokeApk/app/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "6,3,5,4",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "222,56,159,102",
+                        "endColumns": "52,45,62,56",
+                        "endOffsets": "270,97,217,154"
+                    },
+                    "to": {
+                        "startLines": "4,5,6,7",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "169,222,268,331",
+                        "endColumns": "52,45,62,56",
+                        "endOffsets": "217,263,326,383"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,23 +1,24 @@
 <?php
+	include_once "utils.php";
 
-if (isset($_GET['fun'])) {
-	switch($_GET['fun']) {
-		case 'register':
-			register();
-			break;
-		case 'change_password':
-			change_password();
-			break;
-		case 'change_nickname';
-			change_nickname();
-			break;
-		case 'change_email':
-			change_email();
-			break;
-		default:
-			break;
+	if (isset($_GET['fun'])) {
+		switch($_GET['fun']) {
+			case 'register':
+				register();
+				break;
+			case 'change_password':
+				change_password();
+				break;
+			case 'change_nickname';
+				change_nickname();
+				break;
+			case 'change_email':
+				change_email();
+				break;
+			default:
+				break;
+		}
 	}
-}
 
 	//注册新用户
 	function register() {
@@ -34,24 +35,18 @@ if (isset($_GET['fun'])) {
 			"password_again" => "$password_again"
 		];
 
-		$curl = curl_init();
-		curl_setopt($curl, CURLOPT_URL, $post_url);
-		curl_setopt($curl, CURLOPT_POSTFIELDS, $post);
-		curl_setopt($curl, CURLOPT_TIMEOUT, $curl_timeout);	
-		curl_setopt($curl, CURLOPT_HTTPHEADER, null);
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-		$res = json_decode(curl_exec($curl), true); //true参数将对象转换为关联数组
-		curl_close($curl);
-
+		$res = send_post($post_url, null, $post);
 		$state_message = $res['state_message'];
+
 		if($state_message == 0) {
 			$content = $res['info']['content'];
 			$time = $res['info']['time'];
 			setcookie('Annhub', $content, $time, '/');
-			header('Location: ../../manage_index.php');
-		} else {
-			header("Location: error.php?code=$state_message");
-		}
+			//header('Location: ../../manage_index.php');
+		} //else {
+			//header("Location: error.php?code=$state_message");
+			echo json_decode($state_message);
+		//}
 	}
 
 	//修改密码
@@ -69,24 +64,18 @@ if (isset($_GET['fun'])) {
 			"Cookie: Annhub=$cookie"
 		];
 
-		$curl = curl_init();
-		curl_setopt($curl, CURLOPT_URL, $post_url);
-		curl_setopt($curl, CURLOPT_POSTFIELDS, $post);
-		curl_setopt($curl, CURLOPT_TIMEOUT, $curl_timeout);	
-		curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-		$res = json_decode(curl_exec($curl), true); //true参数将对象转换为关联数组
-		curl_close($curl);
-
+		$res = send_post($post_url, $header, $post);
 		$state_message = $res['state_message'];
+
 		if($state_message == 0) {
 			$content = $res['info']['content'];
 			$time = $res['info']['time'];
 			setcookie('Annhub', $content, $time, '/');
-			header('Location: ../../information.php');
-		} else {
-			header("Location: error.php?code=$state_message");
-		}
+			//header('Location: ../../information.php');
+		} //else {
+			//header("Location: error.php?code=$state_message");
+			echo json_decode($state_message);
+		//}
 	}
 
 	//修改邮箱
@@ -104,24 +93,18 @@ if (isset($_GET['fun'])) {
 			"Cookie: Annhub=$cookie"
 		];
 
-		$curl = curl_init();
-		curl_setopt($curl, CURLOPT_URL, $post_url);
-		curl_setopt($curl, CURLOPT_POSTFIELDS, $post);
-		curl_setopt($curl, CURLOPT_TIMEOUT, $curl_timeout);	
-		curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-		$res = json_decode(curl_exec($curl), true); //true参数将对象转换为关联数组
-		curl_close($curl);
-
+		$res = send_post($post_url, $header, $post);
 		$state_message = $res['state_message'];
+
 		if($state_message == 0) {
 			$content = $res['info']['content'];
 			$time = $res['info']['time'];
 			setcookie('Annhub', $content, $time, '/');
-			header('Location: ../../information.php');
-		} else {
-			header("Location: error.php?code=$state_message");
-		}
+			//header('Location: ../../information.php');
+		} //else {
+			//header("Location: error.php?code=$state_message");
+			echo json_decode($state_message);
+		//}
 	}
 
 	//修改昵称
@@ -137,21 +120,15 @@ if (isset($_GET['fun'])) {
 			"Cookie: Annhub=$cookie"
 		];
 
-		$curl = curl_init();
-		curl_setopt($curl, CURLOPT_URL, $post_url);
-		curl_setopt($curl, CURLOPT_POSTFIELDS, $post);
-		curl_setopt($curl, CURLOPT_TIMEOUT, $curl_timeout);	
-		curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-		$res = json_decode(curl_exec($curl), true); //true参数将对象转换为关联数组
-		curl_close($curl);
-
+		$res = send_post($post_url, $header, $post); //注意一定要包含头部
 		$state_message = $res['state_message'];
-		if($state_message == 0) {
-			header('Location: ../../information.php');
-		} else {
-			header("Location: error.php?code=$state_message");
-		}
+
+		//if($state_message == 0) {
+			//header('Location: ../../information.php');
+		//} else {
+			//header("Location: error.php?code=$state_message");
+			echo json_decode($state_message);
+		//}
 	}
 
 

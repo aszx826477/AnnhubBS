@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.LinearLayout android:orientation="vertical" android:background="@drawable/shape_whiteline_whiteinfo" android:paddingLeft="7.0dip" android:paddingTop="20.0dip" android:paddingRight="7.0dip" android:paddingBottom="20.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="14.0sp" android:textColor="@color/homeBottomTextColorUnCheck" android:id="@id/tvTextVerifyTitle" android:paddingLeft="5.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/alarm_edit" />
+    </RelativeLayout>
+    <RelativeLayout android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <EditText android:textSize="14.0sp" android:textColor="@color/titleColor" android:textColorHint="@color/homeBottomTextColorUnCheck" android:id="@id/verifyNum" android:background="@drawable/shape_grayline_whiteinfo" android:paddingLeft="10.0dip" android:layout_width="fill_parent" android:layout_height="40.0dip" android:hint="@string/alarm_edit_eg" android:singleLine="true" android:textCursorDrawable="@color/homeBottomTextColorUnCheck" />
+    </RelativeLayout>
+    <RelativeLayout android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dip">
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/commitBtn" android:background="@color/colorAccent" android:layout_width="fill_parent" android:layout_height="40.0dip" android:text="确定" />
+    </RelativeLayout>
+</android.widget.LinearLayout>

@@ -1,0 +1,105 @@
+fileName:
+clock.apk
+
+fileSize:
+4.92MB
+
+fileMd5:
+b8ecbafac716977edec83d44b2c8d589
+
+package:
+com.pm.clock
+
+mainActivity:
+com.qq.e.ads.ADActivity
+
+minSdkVersion:
+16
+
+targetSdkVersion:
+28
+
+permission:
+<tr><td>0</td><td>VIBRATE</td><td>允许访问振动器</td><td> N</td></tr>
+<tr><td>1</td><td>SET_ALARM</td><td>允许应用程序广播Intent以为用户设置警报</td><td> N</td></tr>
+<tr><td>2</td><td>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</td><td>必须持有申请才能使用Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</td><td> N</td></tr>
+<tr class="info"><td>3</td><td>SYSTEM_ALERT_WINDOW</td><td>允许应用使用WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY所有其他应用上显示的类型创建窗口 </td><td> S</td></tr>
+<tr class="info"><td>4</td><td>READ_EXTERNAL_STORAGE</td><td>允许应用程序从外部存储读取</td><td> D</td></tr>
+<tr><td>5</td><td>DISABLE_KEYGUARD</td><td>允许应用程序在密钥保护不安全时禁用它</td><td> N</td></tr>
+<tr><td>6</td><td>WAKE_LOCK</td><td>允许使用PowerManager WakeLocks防止处理器休眠或屏幕变暗</td><td> N</td></tr>
+<tr><td>7</td><td>RECEIVE_BOOT_COMPLETED</td><td>允许应用程序接收Intent.ACTION_BOOT_COMPLETED系统完成引导后广播的应用程序 </td><td> N</td></tr>
+<tr><td>8</td><td>INTERNET</td><td>允许应用程序打开网络套接字</td><td> N</td></tr>
+<tr><td>9</td><td>ACCESS_NETWORK_STATE</td><td>允许应用程序访问有关网络的信息</td><td> N</td></tr>
+<tr><td>10</td><td>ACCESS_WIFI_STATE</td><td>允许应用程序访问有关Wi - Fi网络的信息</td><td> N</td></tr>
+<tr class="info"><td>11</td><td>READ_PHONE_STATE</td><td>允许只读访问电话状态，包括设备的电话号码，当前的蜂窝网络信息，任何正在进行的呼叫的状态以及PhoneAccount在设备上注册的任何s的列表 </td><td> D</td></tr>
+<tr class="info"><td>12</td><td>ACCESS_COARSE_LOCATION</td><td>允许应用访问大致位置</td><td> D</td></tr>
+<tr class="info"><td>13</td><td>ACCESS_FINE_LOCATION</td><td>允许应用访问精确位置</td><td> D</td></tr>
+<tr class="info"><td>14</td><td>WRITE_EXTERNAL_STORAGE</td><td>允许应用程序写入外部存储</td><td> D</td></tr>
+<tr class="info"><td>15</td><td>REQUEST_INSTALL_PACKAGES</td><td>允许应用程序请求安装包</td><td> S</td></tr>
+<tr><td>16</td><td>FOREGROUND_SERVICE</td><td>允许常规应用程序使用Service.startForeground</td><td> N</td></tr>
+<tr class="info"><td>17</td><td>MOUNT_UNMOUNT_FILESYSTEMS</td><td>允许安装和卸载文件系统以进行可移动存储</td><td> NU</td></tr>
+<tr class="info"><td>18</td><td>ACCESS_MOCK_LOCATION</td><td>允许应用获取模拟定位，安装在用户手机中的应用不应该申请该权限</td><td> NU</td></tr>
+
+activity:
+com.qq.e.ads.ADActivity
+com.sjsj.clockapp.clockmaster.base.activity.WelcomeActivity
+com.sjsj.clockapp.clockmaster.base.activity.HomeActivity
+com.sjsj.clockapp.clockmaster.alarmpage.activity.AddAlarmActivity
+com.sjsj.clockapp.clockmaster.alarmpage.activity.AlarmRingActivity
+com.sjsj.clockapp.clockmaster.alarmpage.activity.SettingAlarmActivity
+com.sjsj.clockapp.clockmaster.alarmpage.activity.ChangeAlarmActivity
+com.sjsj.clockapp.clockmaster.base.activity.AppSettingActivity
+com.sjsj.clockapp.clockmaster.tiimingpage.activity.TimingActivity
+com.sjsj.clockapp.clockmaster.stopwatchpage.activity.StopwatchActivity
+com.sjsj.clockapp.clockmaster.base.activity.ReadWapActivity
+com.sjsj.clockapp.clockmaster.base.activity.AgreementActivity
+me.weyye.hipermission.PermissionActivity
+com.utils.Error
+com.utils.Mysql
+com.test.05011
+com.test.06001
+com.test.12
+
+service:
+com.aso114.adl.service.DownloadService
+com.qq.e.comm.DownloadService
+com.sjsj.clockapp.clockmaster.base.service.GrayService
+com.test.ShowNewFeatures
+
+receiver:
+com.sjsj.clockapp.clockmaster.alarmpage.broadcastReceiver.AlarmBroadCastReceiver
+
+provider:
+android.support.v4.content.FileProvider
+com.http.DebugDisplayMusic
+
+permissionGroup:
+<permission
+    android:name="TEST_GO"
+    android:label="@string/app_name"
+    android:permissionGroup=""
+    android:protectionLevel="normal" >
+
+system_permission:
+<uses-permission android.name="android.MOUNT_UNMOUNT_FILESYSTEMS">
+
+protectionLevel:
+<permission
+    android:name="TEST_GO"
+    android:label="@string/app_name"
+    android:permissionGroup=""
+    android:protectionLevel="normal" >
+
+SharedUserId检测:
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.pm.clock" android:sharedUserId="android.uid.system">
+min_sdk <= 19高危
+
+allowbackup:
+<application android:allowBackup="true" android:appComponentFactory="android.support.v4.app.CoreComponentFactory" android:icon="@drawable/img_icon" android:label="@string/app_name" android:name="com.stub.StubApp" android:roundIcon="@drawable/img_icon" android:supportsRtl="true" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+
+debuggable:
+Safe
+
+unnecessary_permission:
+<uses-permission android.name="android.ACCESS_MOCK_LOCATION">
+

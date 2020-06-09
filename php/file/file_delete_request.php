@@ -9,7 +9,7 @@
 	if($state_message == 0) {
 		$btn_code = $_POST['btn_code'];
 
-		$message = ensure_delete_apk_name($btn_code);
+		$message = ensure_apk_name($btn_code);
 		$state_message = $message[0];
 
 		if($state_message == 0) {

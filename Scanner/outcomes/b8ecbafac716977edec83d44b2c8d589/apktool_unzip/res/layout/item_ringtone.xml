@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/layout_main" android:padding="15.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:foreground="?android:selectableItemBackground">
+        <TextView android:textSize="@dimen/normal_text_size" android:textColor="@color/white" android:id="@id/tv_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/none" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/img_right" android:visibility="gone" android:layout_width="14.0dip" android:layout_height="14.0dip" android:layout_marginLeft="10.0dip" android:src="@mipmap/img_right" android:layout_toRightOf="@id/tv_title" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/img_selected" android:visibility="gone" android:layout_width="14.0dip" android:layout_height="14.0dip" android:src="@mipmap/img_item_selected" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+</RelativeLayout>

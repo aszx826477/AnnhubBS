@@ -15,6 +15,9 @@
 		
 		<!-- vector map CSS -->
 		<link href="vendors/bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+		<!--alerts CSS -->
+        <link href="vendors/bower_components/sweetalert/dist/sweetalert.css" rel="stylesheet" type="text/css">
 		
 		<!-- Custom CSS -->
 		<link href="dist/css/style.css" rel="stylesheet" type="text/css">
@@ -128,7 +131,7 @@
 		
 		<!-- jQuery -->
 		<script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
-		<script src="dist/js_assist/jquery.form.js"></script>
+		<script src="dist/js-custom/jquery.form.js"></script>
 		
 		<!-- Bootstrap Core JavaScript -->
 		<script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -142,6 +145,13 @@
 		
 		<!-- Init JavaScript -->
 		<script src="dist/js/init.js"></script>
+
+		 <!-- Sweet-Alert  -->
+        <script src="vendors/bower_components/sweetalert/dist/sweetalert.min.js"></script>
+
+
+        <!-- 自定义的js -->
+        <script src="dist/js-custom/signup-custom.js"></script>
 
 
 	</body>
