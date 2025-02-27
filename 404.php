@@ -30,7 +30,7 @@
 										<div class="panel-body">
 											<div class="row">
 												<div class="col-sm-12 col-xs-12 text-center">
-													<h3 class="mb-20 txt-danger">您访问的页面不存在(<?php echo $_GET['code']; ?>)</h3>
+													<h3 class="mb-20 txt-danger">您访问的页面不存在(<?php echo htmlspecialchars($_GET['code'], ENT_QUOTES, 'UTF-8'); ?>)</h3>
 													<p class="font-18 txt-dark mb-15">我们感到抱歉，您请求的页面无法找到</p>
 													<p>链接可能输入错误，或者页面已失效</p>
 													<a class="btn btn-success btn-icon right-icon btn-rounded mt-30" href="index.php"><span>返回主页</span><i class="fa fa-space-shuttle"></i></a>
