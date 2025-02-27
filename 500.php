@@ -31,8 +31,8 @@
 										<div class="panel-body">
 											<div class="row">
 												<div class="col-sm-12 col-xs-12 text-center">
-													<h3 class="mb-20 txt-danger">Opoos!(<?php echo $_GET['code']; ?>)</h3>
-													<h4 class="mb-20">-<?php echo $_GET['info']; ?>-</h4>
+													<h3 class="mb-20 txt-danger">Opoos!(<?php echo htmlspecialchars($_GET['code'], ENT_QUOTES, 'UTF-8'); ?>)</h3>
+													<h4 class="mb-20">-<?php echo htmlspecialchars($_GET['info'], ENT_QUOTES, 'UTF-8'); ?>-</h4>
 													<p class="font-18 txt-dark mb-15">服务器遇到了错误</p>
 													<p>我们正在努力解决...</p>
 													<a class="btn btn-success btn-icon right-icon btn-rounded mt-30" href="index.php"><span>返回主页</span><i class="fa fa-space-shuttle"></i></a>
